@@ -1,0 +1,8 @@
+Web app accessible on desktop and mobile which students, prospective students, and visitors can use to tour the campus. 
+The default suggested tour will be the standard ETSU tour across all the main buildings. 
+Specialized tours should also be supported where someone interested in a specific college can focus on what they offer. 
+Additionally, tours specific to a department should be available.
+Non-academic tours will be offered around the history, art, and flora of the campus. 
+The tours are self-guided or virtual, with the user reporting to the web app that they've reached the next location, 
+and the app providing information about their location. 
+Additional points of interest between two tour locations will be listed within the web app.
