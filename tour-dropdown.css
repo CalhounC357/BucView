@@ -1,0 +1,30 @@
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+ }
+ 
+ body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+ }
+
+.dropdown-container {
+}
+
+.dropdown-title {
+    text-align: center;
+    width: 100%;
+}
+
+.dropdown-items {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.dropdown-container:hover .dropdown-items {
+    max-height: 500px;
+    transition: max-height 0.5s ease-in;
+}
