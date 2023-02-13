@@ -14,5 +14,12 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    color: #ffce34;
+    background-color: #002248;
+}
+
+nav {
+    color: #002248;
+    background-color: #ffce34;
 }
