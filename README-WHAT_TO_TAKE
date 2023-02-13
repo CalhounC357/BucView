@@ -1,0 +1,6 @@
+The only few things need from this for the main build is the Images folder which contains all the logos, the <img> tags from index.html if you need reference.
+The favicon named etsu.ico for the icon that shows in top left of each page tab, and the line of code that activates it for use. 
+Everything is found under wwwroot.
+
+Optional:
+  the CSS style code for the page which can be found in index.html and _layout
