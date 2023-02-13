@@ -3,4 +3,4 @@ The favicon named etsu.ico for the icon that shows in top left of each page tab,
 Everything is found under wwwroot.
 
 Optional:
-  the CSS style code for the page which can be found in index.html and _layout
+  the CSS style code for the page which can be found in css also under wwwroot
