@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\Logos\ETSU-Buccaneers-logo.png" />
+    <None Include="wwwroot\Images\Logos\ETSU_Blue_Shield_logo.png" />
+    <None Include="wwwroot\Images\Logos\ETSU_Shield_logo.jpg" />
+  </ItemGroup>
+
+</Project>
