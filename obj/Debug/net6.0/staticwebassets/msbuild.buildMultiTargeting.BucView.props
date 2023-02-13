@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\BucView.props" />
-</Project>
