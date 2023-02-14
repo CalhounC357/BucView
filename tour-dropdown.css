@@ -11,20 +11,21 @@ html {
  }
 
 .dropdown-container {
+    
 }
 
-.dropdown-title {
+#dropdown-title {
     text-align: center;
     width: 100%;
 }
 
-.dropdown-items {
+#dropdown-items {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out;
 }
 
-.dropdown-container:hover .dropdown-items {
+#dropdown-container:hover #dropdown-items {
     max-height: 500px;
     transition: max-height 0.5s ease-in;
 }
