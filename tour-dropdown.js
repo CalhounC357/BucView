@@ -1,6 +1,6 @@
 console.log("test");
 
-const reqURL = "placeholder";
+// const reqURL = "placeholder";
 
 requestTours();
 
@@ -9,22 +9,22 @@ requestTours();
  * that will be added to the dropdown menu.
  */
 async function requestTours () {
-    const response = await fetch(reqURL);
-    console.log(response);
+    // const response = await fetch(reqURL);
+    // console.log(response);
 
-    if (response.status == 200)
-    {
-        updateDropdownItems(await response.json());
-    }   
-    // If the response was unsuccessful, signal that the tours weren't loaded properly
-    else
-    {
-        const tourPlaceholder = {
-            name: "Error loading tours",
+    // if (response.status == 200)
+    // {
+    //     updateDropdownItems(await response.json());
+    // }   
+    // // If the response was unsuccessful, signal that the tours weren't loaded properly
+    // else
+    // {
+        let tourPlaceholder = {
+            name: "No tours found",
             url: "."
         };
         updateDropdownItems([tourPlaceholder]);
-    } 
+    // } 
 }
 
 /**
@@ -33,17 +33,18 @@ async function requestTours () {
  */
 function updateDropdownItems(tourList) {
     const dropdownItems = document.getElementById("dropdown-items");
-
+    dropdownItems.textContent = "";
+    
     // Iterate through the list of tours, adding each one to the dropdown items element
-    foreach (tour in tourList)
+    for (tour of tourList)
     {
         // Create a list item and set the text to the tour name
         const listItem = document.createElement("li");
-        listItem.textContent = tour.name;
 
         // Create an anchor tag and set the href to the tour's URL
         const tourLink = document.createElement("a");
         tourLink.setAttribute("href", tour.url);
+        tourLink.textContent = tour.name;
 
         // Add the anchor to the list item, and the list item to the list
         listItem.appendChild(tourLink);
