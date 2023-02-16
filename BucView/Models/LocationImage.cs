@@ -8,15 +8,10 @@ namespace BucView.Models
      */
     public class LocationImage
     {
-        [Key]
         public int Id { get; set; }
-        [Required]
         public int LocationId { get; set; }
-        [NotMapped]
         public Location? Location { get; set; }
-        [Required]
         public string? ImageUrl { get; set; }
-        [Required]
         public int Rank { get; set; }
     }
 }

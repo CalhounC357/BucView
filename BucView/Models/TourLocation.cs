@@ -8,19 +8,12 @@ namespace BucView.Models
      */
     public class TourLocation
     {
-        [Key]
         public int Id { get; set; }
-        [Required]
         public int TourId { get; set; }
-        [NotMapped]
         public Tour? Tour { get; set; }
-        [Required]
         public int LocationId { get; set; }
-        [NotMapped]
         public Location? Location { get; set; }
-        [Required]
         public int Rank { get; set; }
-        [NotMapped]
         public ICollection<TourLocationInterestPoint> InterestPoints { get; set; } = new List<TourLocationInterestPoint>();
     }
 }
