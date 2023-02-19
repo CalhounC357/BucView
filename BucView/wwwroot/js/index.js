@@ -1,6 +1,4 @@
-console.log("test");
-
-// const reqURL = "placeholder";
+const tourReqUrl = window.location.origin;
 
 requestTours();
 
@@ -9,22 +7,22 @@ requestTours();
  * that will be added to the dropdown menu.
  */
 async function requestTours () {
-    // const response = await fetch(reqURL);
-    // console.log(response);
+    const response = await fetch(tourReqUrl);
+    console.log(response);
 
-    // if (response.status == 200)
-    // {
-    //     updateDropdownItems(await response.json());
-    // }   
-    // // If the response was unsuccessful, signal that the tours weren't loaded properly
-    // else
-    // {
+    if (response.status == 200)
+    {
+         updateDropdownItems(await response.json());
+    }   
+    // If the response was unsuccessful, signal that the tours weren't loaded properly
+    else
+    {
         let tourPlaceholder = {
             name: "No tours found",
             url: "."
         };
         updateDropdownItems([tourPlaceholder]);
-    // } 
+    } 
 }
 
 /**
