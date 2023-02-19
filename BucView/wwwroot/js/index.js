@@ -1,4 +1,4 @@
-const tourReqUrl = window.location.origin;
+const tourReqUrl = window.location.origin + "/api/tours";      // URL from which to request the tour data
 
 requestTours();
 
@@ -19,7 +19,7 @@ async function requestTours () {
     {
         let tourPlaceholder = {
             name: "No tours found",
-            url: "."
+            url: "."    // Link redirects to the current page
         };
         updateDropdownItems([tourPlaceholder]);
     } 
