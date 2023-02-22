@@ -15,8 +15,8 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Scope repo
-
+// Scope repo!!
+builder.Services.AddScoped<ITourRepository, TourRepository>();
 
 var app = builder.Build();
 
