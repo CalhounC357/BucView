@@ -37,7 +37,7 @@ namespace BucView.Infrastructure
 
         public async Task<ICollection<Tour>> ReadTours()
         {
-            return await db.Tour.Include(t => t.Locations).ToListAsync();
+            return await db.Tour.Include(t => t.Locations).ThenInclude(l => l.Location).ToListAsync();
         }
     }
 }
