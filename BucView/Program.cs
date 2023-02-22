@@ -1,6 +1,6 @@
-using BucView;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using BucView.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +12,11 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<BucViewContext>();
 
-//builder.Services.AddDefaultIdentity<IdentityUser>();
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Scope repo
+
 
 var app = builder.Build();
 

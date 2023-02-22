@@ -1,7 +1,7 @@
 ﻿using BucView.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BucView.Data
+namespace BucView.Infrastructure
 {
     public class TourRepository : ITourRepository
     {
@@ -15,12 +15,12 @@ namespace BucView.Data
             return await db.LocationImage.Where(i => i.LocationId == locationId).ToListAsync();
         }
 
-        public async Task<Location> GetLocation(int locationId)
+        public async Task<Location?> GetLocation(int locationId)
         {
             return await db.Location.FirstOrDefaultAsync(l => l.Id == locationId);
         }
 
-        public async Task<Tour> GetTour(int tourId)
+        public async Task<Tour?> GetTour(int tourId)
         {
             return await db.Tour.FirstOrDefaultAsync(t => t.Id == tourId);
         }

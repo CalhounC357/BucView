@@ -3,13 +3,18 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BucView.Data
+namespace BucView.Infrastructure
 {
     public class BucViewContext : IdentityDbContext<IdentityUser, IdentityRole, string>
     {
         public BucViewContext(DbContextOptions<BucViewContext> options) : base(options)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
 
         public DbSet<Tour> Tour => Set<Tour>();
