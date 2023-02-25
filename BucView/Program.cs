@@ -1,7 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using BucView.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+string? connection = builder.Configuration.GetConnectionString("Connection");
+builder.Services.AddDbContext<BucViewContext>(options => options.UseSqlite(connection));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddUserManager<UserManager<IdentityUser>>()
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<BucViewContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Scope repo!!
+builder.Services.AddScoped<ITourRepository, TourRepository>();
 
 var app = builder.Build();
 
