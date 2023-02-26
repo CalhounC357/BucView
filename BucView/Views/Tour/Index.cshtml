@@ -12,7 +12,9 @@
         {
             <h3>@tl.Location?.Name</h3>
             <h4>@tl.Location?.Description</h4>
-            <hr />
+            <a asp-controller="Tour" asp-action="Location" style="padding-left: 3px">Back to Admin Portal</a>
+            @Html.ActionLink("See Location", "Location", "Tour", new {  tourId=tour.Id, rank=tl.Rank  }, null)
+        <hr />
         }
         <hr />
     }

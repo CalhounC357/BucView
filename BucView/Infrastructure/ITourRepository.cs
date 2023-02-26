@@ -6,6 +6,7 @@ namespace BucView.Infrastructure
     {
         Task<ICollection<Tour>> ReadTours();
         Task<Tour?> GetTour(int tourId);
+        Task<TourLocation> GetTourLocation(int tourId, int rank);
         Task<ICollection<TourLocation>> GetTourLocations(int tourId);
         Task<ICollection<Location>> ReadLocations();
         Task<Location?> GetLocation(int locationId);

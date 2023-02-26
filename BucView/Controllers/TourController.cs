@@ -1,6 +1,7 @@
 ﻿using BucView.Infrastructure;
 using BucView.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 
 namespace BucView.Controllers
 {
@@ -15,6 +16,12 @@ namespace BucView.Controllers
         {
             ICollection<Tour> tours = await repo.ReadTours();
             return View(tours);
+        }
+
+        public async Task<IActionResult> Location(int tourId, int rank)
+        {
+            TourLocation tourLocation = await repo.GetTourLocation(tourId, rank);
+            return View(tourLocation);
         }
     }
 }
