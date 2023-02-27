@@ -1,4 +1,5 @@
 ﻿using BucView.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BucView.Infrastructure
@@ -41,10 +42,23 @@ namespace BucView.Infrastructure
             return await db.TourLocation
                 .Where(tl => tl.TourId == tourId && tl.Rank == rank)
                 .Include(tl => tl.Tour)
+                    .ThenInclude(t => t.Locations)
                 .Include(tl => tl.Location)
                 .Include(tl => tl.InterestPoints)
                     .ThenInclude(ip => ip.InterestPoint)
                 .FirstAsync();
+        }
+
+        public async Task<TourLocation?> GetNextTourLocation(int tourId, int rank)
+        {
+            return await db.TourLocation
+                .Where(tl => tl.TourId == tourId && tl.Rank == rank)
+                .Include(tl => tl.Tour)
+                    .ThenInclude(t => t.Locations)
+                .Include(tl => tl.Location)
+                .Include(tl => tl.InterestPoints)
+                    .ThenInclude(ip => ip.InterestPoint)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<ICollection<Location>> ReadLocations()
