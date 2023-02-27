@@ -27,6 +27,8 @@ namespace BucView.Infrastructure
         public async Task<Tour?> GetTour(int tourId)
         {
             return await db.Tour
+                .Include(t => t.Locations)
+                    .ThenInclude(l => l.Location)
                 .FirstOrDefaultAsync(t => t.Id == tourId);
         }
 
@@ -52,7 +54,7 @@ namespace BucView.Infrastructure
         public async Task<TourLocation?> GetNextTourLocation(int tourId, int rank)
         {
             return await db.TourLocation
-                .Where(tl => tl.TourId == tourId && tl.Rank == rank)
+                .Where(tl => tl.TourId == tourId && tl.Rank == rank + 1)
                 .Include(tl => tl.Tour)
                     .ThenInclude(t => t.Locations)
                 .Include(tl => tl.Location)
