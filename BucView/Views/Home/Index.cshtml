@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Tour>
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/index.css" />
+}
+
+
+@{
+    ViewData["Title"] = "ETSU Tours";
+}
+
+<div id="page-content">
+
+    <!-- ETSU logo -->
+    <img id="main-logo" src="~/images/logos/ETSU_FullName_shield_logo.jpg" alt="ETSU LOGO" />
+
+
+    <!-- Tour dropdown menu -->
+    <div id="dropdown-container">
+        <h2 id="dropdown-title">Tours</h2>
+        <ul id="dropdown-items">
+        @{
+          foreach (Tour tour in Model) 
+          {
+            <li><a href="~/Tour/@tour.Name">@tour.Name</a></li>
+          }
+
+        }
+        </ul>
+    </div>
+
+    <!-- Static map of ETSU campus -->
+    <embed id="static-map" src="~/images/etsu-campusmap.pdf#zoom=20" type="application/pdf" />
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - BucView
+        </div>
+    </footer>
+</div>
+
+@*@section Scripts {
+    <script src="~/js/index.js" defer></script>
+}*@
