@@ -8,9 +8,9 @@ namespace BucView.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment HostEnvironment)
         {
-            _logger = logger;
+            _logger = logger;  
         }
 
         public IActionResult Index()
@@ -24,5 +24,6 @@ namespace BucView.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
