@@ -1,6 +1,11 @@
 ﻿@model TourLocation
 
-<p> hello @Model.Location.Name</p>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<h1>@Model.Id</h1>
+<h4>@Model.Location?.Name</h4>
+<h4>@Model.Location?.Description</h4>
 
 <div id="carousel" class="carousel slide w-50" data-bs-ride="true">
     <div class="carousel-indicators">
@@ -33,12 +38,12 @@
                 </div>
             }
             else
-            {
+{
                 <div class="carousel-item">
                     <img src="~/@image.ImageUrl" class="d-block w-100 h-100" alt="@Model.Location.Name-@image.Rank">
                 </div>
             }
-        }
+}
 
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
@@ -50,3 +55,4 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+@Html.ActionLink("Next", "Location", "Tour", new {  tourId=Model.TourId, rank=(Model.Rank + 1)  }, null)
