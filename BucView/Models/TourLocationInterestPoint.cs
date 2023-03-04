@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace BucView.Models
+﻿namespace BucView.Models
 {
     /*
      * Represents an interest point near a Location on a Tour (TourLocation)

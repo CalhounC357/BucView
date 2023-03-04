@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace BucView.Models
+﻿namespace BucView.Models
 {
     /**
      * Represents a series of ordered locations
@@ -19,6 +16,8 @@ namespace BucView.Models
         // This is meant to be arbitrary/not directly ordered, so you could enter 10000 if you really want it at the bottom
         // Or enter the same rank for different tours if you don't care the order
         public int Rank { get; set; }
+        // Time in minutes estimating how long the tour takes
+        public int EstimatedTime { get; set; }
         public ICollection<TourLocation> Locations { get; set; } = new List<TourLocation>();
     }
 }
