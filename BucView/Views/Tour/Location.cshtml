@@ -6,9 +6,13 @@
 <h1>@Model.Id</h1>
 <h4>@Model.Location?.Name</h4>
 <h4>@Model.Location?.Description</h4>
+<div>
+	<a href="@Url.Action("NextLocation", "Tour", new {tourId=Model.TourId, rank=(Model.Rank+1)}, null)" style="position:relative; bottom:0px; right:-1200px;">
+		<input type="button" value="Next" id="nextButton" class="btn btn-primary btn-lg" />
+	</a>
+
+</div>
 @foreach (LocationImage img in Model.Location?.Images)
 {
     <img src="@img.ImageUrl">
 }
-
-@Html.ActionLink("Next", "Location", "Tour", new {  tourId=Model.TourId, rank=(Model.Rank + 1)  }, null)
