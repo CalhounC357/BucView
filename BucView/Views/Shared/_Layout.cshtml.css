@@ -76,23 +76,9 @@ button.accept-policy {
     transform: translate(-50%, -50%);
 }
 
-.top-centered34 {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.top-centered40 {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 .bottom-centered {
     position: absolute;
-    top: 95%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
