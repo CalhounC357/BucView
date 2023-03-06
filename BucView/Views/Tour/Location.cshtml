@@ -1,0 +1,58 @@
+﻿@model TourLocation
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<h1>@Model.Id</h1>
+<h4>@Model.Location?.Name</h4>
+<h4>@Model.Location?.Description</h4>
+
+<div id="carousel" class="carousel slide w-50" data-bs-ride="true">
+    <div class="carousel-indicators">
+
+        @for (int i = 0; i < Model.Location.Images.Count; i++)  // Iterate through all the images, creating an indicator for each
+        {
+            
+            // The first button needs the "active" class so the carousel indicators have a starting point
+            if (i == 0)
+            {
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 0"></button>
+            }
+            else
+            {
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="@i" aria-label="Slide @i"></button>
+            }
+        }
+
+    </div>
+    <div class="carousel-inner" style="height:300px">
+
+        @foreach (var image in Model.Location.Images)   // Iterate through all the images, creating div and img elements for each
+        {
+            
+            // The first image needs the "active" class so the carousel has a starting point
+            if (image == Model.Location.Images.First())
+            {
+                <div class="carousel-item active">
+                    <img src="~/@image.ImageUrl" class="d-block w-100 h-100" alt="@Model.Location.Name-@image.Rank">
+                </div>
+            }
+            else
+{
+                <div class="carousel-item">
+                    <img src="~/@image.ImageUrl" class="d-block w-100 h-100" alt="@Model.Location.Name-@image.Rank">
+                </div>
+            }
+}
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+@Html.ActionLink("Next", "Location", "Tour", new {  tourId=Model.TourId, rank=(Model.Rank + 1)  }, null)

@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\Migrations\" />
+    <Folder Include="wwwroot\images\test\" />
   </ItemGroup>
 
 </Project>
