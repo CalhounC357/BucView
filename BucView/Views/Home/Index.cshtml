@@ -23,7 +23,7 @@
         @{
           foreach (Tour tour in Model) 
           {
-            <li><a href="~/Tour/@tour.Name">@tour.Name</a></li>
+            <li>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, null)</li>
           }
 
         }

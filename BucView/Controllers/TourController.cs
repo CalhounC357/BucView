@@ -11,10 +11,11 @@ namespace BucView.Controllers
         {
             repo = _repo;
         }
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index(int id)
         {
-            ICollection<Tour> tours = await repo.ReadTours();
-            return View(tours);
+            Tour? tour = await repo.GetTour(id);
+            return View(tour);
         }
 
         public IActionResult CBAT()

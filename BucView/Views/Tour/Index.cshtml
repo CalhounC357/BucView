@@ -1,19 +1,23 @@
-﻿@model IEnumerable<Tour>
+﻿@model Tour
 
 @*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    This is the starting point for a tour
+    It gives info about the tour, and links to the starting location in the tour
 *@
 <h1>Tours</h1>
 <hr />
+<h1>@Model.Name</h1>
+@Html.ActionLink("Start tour", "Location", "Tour", new {  tourId=Model.Id, rank=0  }, null)
+
 @{
-    foreach (Tour tour in Model) {
-        <h1>@tour.Name</h1>
-        foreach (TourLocation tl in tour.Locations)
-        {
-            <h3>@tl.Location?.Name</h3>
-            <h4>@tl.Location?.Description</h4>
-            <hr />
-        }
+    @*This section is just for testing and should be removed once this is styled; not linking to all the locations at the start*@
+    foreach (TourLocation tl in Model.Locations)
+    {
+        <h3>@tl.Location?.Name</h3>
+        <h4>@tl.Location?.Description</h4>
+        <h4>@tl.Rank</h4>
+        <a asp-controller="Tour" asp-action="Location" style="padding-left: 3px">Back to Admin Portal</a>
+        @Html.ActionLink(@tl.Location?.Name, "Location", "Tour", new {  tourId=Model.Id, rank=tl.Rank  }, null)
         <hr />
     }
 }
