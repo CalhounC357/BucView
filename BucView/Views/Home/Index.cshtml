@@ -23,9 +23,19 @@
     </div>
 
     <!-- Static map of ETSU campus -->
-    <embed id="static-map" src="~/images/etsu-campusmap.pdf#zoom=20" type="application/pdf" />
+    <p class="aligncenter">     <!--Alight the map in the center-->
+    <img src="~/images/ETSU_Map.png" type="application/pdf" width="600px" height="450px" />     <!--The width and height are set manually to size teh .png-->
+    </p>
+    
 </div>
 
 @section Scripts {
     <script src="~/js/index.js" defer></script>
 }
+
+<!--This is used to center the .png map on the page-->
+<style>
+    .aligncenter {
+        text-align: center;
+    }
+</style>
