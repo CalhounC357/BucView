@@ -46,6 +46,7 @@ namespace BucView.Infrastructure
                 .Include(tl => tl.Tour)
                     .ThenInclude(t => t.Locations)
                 .Include(tl => tl.Location)
+                    .ThenInclude(t => t.Images)
                 .Include(tl => tl.InterestPoints)
                     .ThenInclude(ip => ip.InterestPoint)
                 .FirstAsync();
