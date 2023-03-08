@@ -1,3 +1,5 @@
+@model IEnumerable<Tour>
+
 @section Styles {
     <link rel="stylesheet" href="~/css/index.css" />
 }
@@ -16,9 +18,12 @@
     <div id="dropdown-container">
         <h2 id="dropdown-title">Tours</h2>
         <ul id="dropdown-items">
-            <li><a href="">example 1</a></li>
-            <li><a href="">example 2</a></li>
-            <li><a href="">example 3</a></li>
+        @{
+          foreach (Tour tour in Model) 
+          {
+            <li>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, null)</li>
+          }
+        }
         </ul>
     </div>
 
@@ -28,10 +33,6 @@
     </p>
     
 </div>
-
-@section Scripts {
-    <script src="~/js/index.js" defer></script>
-}
 
 <!--This is used to center the .png map on the page-->
 <style>
