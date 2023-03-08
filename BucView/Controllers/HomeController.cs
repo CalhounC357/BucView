@@ -1,4 +1,5 @@
-﻿using BucView.Models;
+﻿using BucView.Infrastructure;
+using BucView.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,18 +7,20 @@ namespace BucView.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ITourRepository repo;
+
+        public HomeController(ITourRepository _repo)
         {
-            _logger = logger;
+            repo = _repo;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
+            ICollection<Tour> tours = await repo.ReadTours();
 
+            return View(tours);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
