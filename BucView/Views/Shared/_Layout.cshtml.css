@@ -40,7 +40,7 @@ button.accept-policy {
 }
 
 .footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
@@ -81,4 +81,10 @@ button.accept-policy {
     top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.centered-location{
+    position: absolute;
+    top: 10%;
+    left: 40%;
 }

@@ -4,6 +4,11 @@
     This is the starting point for a tour
     It gives info about the tour, and links to the starting location in the tour
 *@
+@*This aligns the H1 to the center of the page*@
+<style>  
+    h1 {text-align: center;}
+</style>
+
 <h1>Tours</h1>
 <hr />
 <h1>@Model.Name</h1>
@@ -12,11 +17,17 @@
 @{
     @*This section is just for testing and should be removed once this is styled; not linking to all the locations at the start*@
     foreach (TourLocation tl in Model.Locations) {
+        
+        <style>
+        h3 {text-align: center;}
+        h4 {text-align: center;}
+        </style>
         <h3>@tl.Location?.Name</h3>
         <h4>@tl.Location?.Description</h4>
         <h4>@tl.Rank</h4>
         <a asp-controller="Tour" asp-action="Location" style="padding-left: 3px">Back to Admin Portal</a>
         @Html.ActionLink(@tl.Location?.Name, "Location", "Tour", new {  tourId=Model.Id, rank=tl.Rank  }, null)
         <hr />
+        
     }
 }
