@@ -21,10 +21,12 @@
     foreach (TourLocation tl in Model.Locations) {
         
         <style>
-        h2 {text-align: center; background-color:#f4c52f; text-; padding:10px}
+        h2 {text-align: center; background-color:#f4c52f; padding:10px}
         h6 {text-align: center;}
-        @*This changes teh link color-profile*@
-        a:link, a:visited {color:darkblue}
+        @*This changes the link color-profile*@
+        a:link {color:darkblue; text-decoration:underline}
+        a:visited {color:deeppink; text-decoration:none}
+        a:hover {color:red}
         </style>
 
         @*<h4>@tl.Rank:</h4> hiding the rank nubmer*@
@@ -39,7 +41,8 @@
     <form>
         <input type="button"
                value="Go Back Ya Dingus!"
-               onclick="history.back()">
+               onclick="history.back()"
+               >
     </form>
   }
 
