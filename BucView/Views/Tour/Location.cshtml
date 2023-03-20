@@ -6,6 +6,7 @@
 <style>
     h2 {text-align:center}
     h4 {text-align:center}
+    h7 {text-align:right}
 </style>
 
 <h1>@Model.Id</h1>
@@ -13,6 +14,9 @@
 <h4>@Model.Location?.Description</h4>
 
 <div id="carousel" class="carousel slide w-50" data-bs-ride="true">
+    <style>
+        h7 {text-align:right}
+    </style>
     <div class="carousel-indicators">
 
         @for (int i = 0; i < Model.Location.Images.Count; i++)  // Iterate through all the images, creating an indicator for each
@@ -43,7 +47,6 @@
                 </div>
             }
             else
-
 {
                 <div class="carousel-item">
                     <img src="~/images/Locations/@image.ImageUrl" class="d-block w-100 h-100" alt="@Model.Location.Name-@image.Rank">
@@ -56,21 +59,28 @@
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
+   
     <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-<div>
-	<a href="@Url.Action("NextLocation", "Tour", new {tourId=Model.TourId, rank=(Model.Rank+1)}, null)" style="position:relative; bottom:0px; right:-1200px;">
-		<input type="button" value="Next" id="nextButton" class="btn btn-primary btn-lg" />
-	</a>
 
-</div>
+<form>
+    <input type="button"
+           value="Next!-->"
+           onclick="window.location.href='@Url.Action("Location", "Tour", new { tourId = Model.TourId, rank = Model.Rank + 1 })';"
+           class="btn btn-secondary float-end">
+</form>
+@*<div style="text-align:right">
+    @Html.ActionLink("Next", "Location", "Tour", new {  tourId=Model.TourId, rank=(Model.Rank + 1)  }, null)
+</div>*@
+
 
 @*Adds a back button to the screen. It adjust to what page you just come from*@
 <form>
     <input type="button"
-           value="Go Back!"
-           onclick="history.back()">
+           value="<-- Go Back!"
+           onclick="history.back()"
+           class="btn btn-secondary">
 </form>
