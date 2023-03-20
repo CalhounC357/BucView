@@ -7,13 +7,17 @@
 @*This aligns the H1 to the center of the page*@
 <style>  
     h1 {text-align: center;}
-    h5 {text-align: center;}
+    h3 {text-align: center;}
+    h4 {text-align: center;}
 </style>
 
-<h1>Tours</h1>
+@*<h1>Tours</h1>*@
 <hr />
 <h1>@Model.Name</h1>
-<h5>@Html.ActionLink("Start tour", "Location", "Tour", new {  tourId=Model.Id, rank=1  }, null)</h5>
+<h4>@Model.Description</h4>
+<hr />
+<h3>@Html.ActionLink("Start tour", "Location", "Tour", new {  tourId=Model.Id, rank=1  }, null)</h3>
+<hr />
 
 @{
     
