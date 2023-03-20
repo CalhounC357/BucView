@@ -33,20 +33,10 @@ namespace BucView.Controllers
              * 
              * TO-DO:  may want a different option in future for when user reach end of tour locations
              */
-            string getCount = "SELECT COUNT(Rank) FROM TourLocation WHERE TourId=" + tourId +";";
-            int count;
-
-            using (SqliteConnection thisConnection = new SqliteConnection("Data Source=wwwroot\\bucviewdatabase.db"))
-            {
-                using (SqliteCommand command = new SqliteCommand(getCount, thisConnection)) {
-                    thisConnection.Open();
-                    count = (int)(long)command.ExecuteScalar();
-                }
-            }
+            int count = (await repo.GetTourLocations(tourId)).Count;
 
             if (rank <= count - 1)
             {
-
                 return RedirectToAction("Location", new { tourId, rank });
             }
             
