@@ -43,6 +43,7 @@
                 </div>
             }
             else
+
 {
                 <div class="carousel-item">
                     <img src="~/images/Locations/@image.ImageUrl" class="d-block w-100 h-100" alt="@Model.Location.Name-@image.Rank">
@@ -60,7 +61,12 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-@Html.ActionLink("Next", "Location", "Tour", new {  tourId=Model.TourId, rank=(Model.Rank + 1)  }, null)
+<div>
+	<a href="@Url.Action("NextLocation", "Tour", new {tourId=Model.TourId, rank=(Model.Rank+1)}, null)" style="position:relative; bottom:0px; right:-1200px;">
+		<input type="button" value="Next" id="nextButton" class="btn btn-primary btn-lg" />
+	</a>
+
+</div>
 
 @*Adds a back button to the screen. It adjust to what page you just come from*@
 <form>
