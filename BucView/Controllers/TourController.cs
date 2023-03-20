@@ -35,7 +35,7 @@ namespace BucView.Controllers
              */
             int count = (await repo.GetTourLocations(tourId)).Count;
 
-            if (rank <= count - 1)
+            if (rank <= count)
             {
                 return RedirectToAction("Location", new { tourId, rank });
             }
