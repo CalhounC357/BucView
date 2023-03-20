@@ -4,19 +4,46 @@
     This is the starting point for a tour
     It gives info about the tour, and links to the starting location in the tour
 *@
+@*This aligns the H1 to the center of the page*@
+<style>  
+    h1 {text-align: center;}
+    h5 {text-align: center;}
+</style>
+
 <h1>Tours</h1>
 <hr />
 <h1>@Model.Name</h1>
-@Html.ActionLink("Start tour", "Location", "Tour", new {  tourId=Model.Id, rank=0  }, null)
+<h5>@Html.ActionLink("Start tour", "Location", "Tour", new {  tourId=Model.Id, rank=1  }, null)</h5>
 
 @{
+    
     @*This section is just for testing and should be removed once this is styled; not linking to all the locations at the start*@
     foreach (TourLocation tl in Model.Locations) {
-        <h3>@tl.Location?.Name</h3>
-        <h4>@tl.Location?.Description</h4>
-        <h4>@tl.Rank</h4>
-        <a asp-controller="Tour" asp-action="Location" style="padding-left: 3px">Back to Admin Portal</a>
-        @Html.ActionLink(@tl.Location?.Name, "Location", "Tour", new {  tourId=Model.Id, rank=tl.Rank  }, null)
+        
+        <style>
+        h2 {text-align: center; background-color:#f4c52f; padding:10px}
+        h6 {text-align: center;}
+        @*This changes the link color-profile*@
+        a:link {color:darkblue; text-decoration:underline}
+        a:visited {color:deeppink; text-decoration:none}
+        a:hover {color:red}
+        </style>
+
+        @*<h4>@tl.Rank:</h4> hiding the rank nubmer*@
+        @*<h2>@tl.Location?.Name</h2>*2
+       @* <h6>@tl.Location?.Description</h6>*@
+        
+        @*<a asp-controller="Tour" asp-action="Location" style="padding-left: 3px">Back to Admin Portal</a>*@
+        <h2><a>@Html.ActionLink(@tl.Location?.Name, "Location", "Tour", new {  tourId=Model.Id, rank=tl.Rank  }, null)</a></h2>
         <hr />
     }
-}
+    @*Adds a back button to the screen. It adjust to what page you just come from*@
+    <form>
+        <input type="button"
+               value="Go Back Ya Dingus!"
+               onclick="history.back()"
+               >
+    </form>
+  }
+
+  

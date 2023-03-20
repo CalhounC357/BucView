@@ -4,22 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BucView</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BucView.styles.css" asp-append-version="true" />
     <link rel="shortcut icon" type="image/x-icon" href="~/etsu.ico" />
     @RenderSection("Styles", false)
 </head>
-<body>
+<body style="background-color:#f2edda">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparent border-bottom box-shadow mb-3">
+            <div class="container-fluid" style="background-color:#001c43">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/Logos/ETSU-Buccaneers-logo.png" height="50" width="75" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" style="background-color:#f4c52f">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -31,12 +31,35 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+            <h4>
+                @RenderBody()
+            </h4>
+            
         </main>
     </div>
 
+    <!--The background is an image and the text is overlayed. The top centered__ dictates it position on the image.-->
+   <footer class="footer text-muted" style="background-color:#f2edda">
+        <div class="figure-img">  
+            <img src="~/images/Footer_Image.jpg" style="width: 100%"/>
+            <h3 class="top-centered">
+				<a class="logo" href="//www.etsu.edu">
+					East Tennessee State University (<abbr title="East Tennessee State University" style="border-bottom:none;">ETSU</abbr>) in Johnson City
+				</a>
+			</h3>
+			<address class="top-centered15 text--gray">1276 Gilbreath Dr. , Box 70300, Johnson City, TN 37614-1700</address>
+			<ul style="list-style: none;" class="top-centered23 list--inline text--center text--gray">
+				<li><a href="tel:14234391000" title="ETSU Customer Service Phone Number">(423) 439-1000</a> 
+                    <a href="mailto:info@etsu.edu" title="ETSU Customer Service Email">info@etsu.edu</a></li>
+			</ul>
+			
+		<p class="bottom-centered text--gray"><span id="directedit">©</span>&nbsp;East Tennessee State University — All Rights Reserved.</p>
+        </div>
+    </footer> 
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -1,3 +1,5 @@
+@model IEnumerable<Tour>
+
 @section Styles {
     <link rel="stylesheet" href="~/css/index.css" />
 }
@@ -16,16 +18,25 @@
     <div id="dropdown-container">
         <h2 id="dropdown-title">Tours</h2>
         <ul id="dropdown-items">
-            <li><a href="">example 1</a></li>
-            <li><a href="">example 2</a></li>
-            <li><a href="">example 3</a></li>
+        @{
+          foreach (Tour tour in Model) 
+          {
+            <li>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, null)</li>
+          }
+        }
         </ul>
     </div>
 
     <!-- Static map of ETSU campus -->
-    <embed id="static-map" src="~/images/etsu-campusmap.pdf#zoom=20" type="application/pdf" />
+    <p class="aligncenter">     <!--Alight the map in the center-->
+    <img src="~/images/ETSU_Map.png" type="application/pdf" width="600px" height="450px" />     <!--The width and height are set manually to size teh .png-->
+    </p>
+    
 </div>
 
-@section Scripts {
-    <script src="~/js/index.js" defer></script>
-}
+<!--This is used to center the .png map on the page-->
+<style>
+    .aligncenter {
+        text-align: center;
+    }
+</style>

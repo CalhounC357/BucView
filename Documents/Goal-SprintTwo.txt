@@ -1,2 +1,2 @@
 Goal for sprint 2
-	Have a working version of the application deployed on a windows server and have the tour(s) completed so far working.
+	Have a working version of the application deployed and have the General tour working.
