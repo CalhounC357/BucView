@@ -66,16 +66,13 @@
     </button>
 </div>
 
+@*This makes the next button and back button appear the same style*@
 <form>
     <input type="button"
            value="Next!-->"
            onclick="window.location.href='@Url.Action("Location", "Tour", new { tourId = Model.TourId, rank = Model.Rank + 1 })';"
            class="btn btn-secondary float-end">
 </form>
-@*<div style="text-align:right">
-    @Html.ActionLink("Next", "Location", "Tour", new {  tourId=Model.TourId, rank=(Model.Rank + 1)  }, null)
-</div>*@
-
 
 @*Adds a back button to the screen. It adjust to what page you just come from*@
 <form>
