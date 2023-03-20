@@ -39,9 +39,9 @@ namespace BucView.Controllers
             {
                 return RedirectToAction("Location", new { tourId, rank });
             }
-            rank = 1;
-
-            return RedirectToAction("Location", new { tourId, rank });
+            
+            return RedirectToAction("Index", "Tour", new {id=tourId});
+            
         }
     }
 }
