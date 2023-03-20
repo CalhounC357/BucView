@@ -2,6 +2,7 @@
 using BucView.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor.Compilation;
+using Microsoft.Data.Sqlite;
 
 namespace BucView.Controllers
 {
