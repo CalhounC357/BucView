@@ -68,3 +68,8 @@
            value="Go Back!"
            onclick="history.back()">
 </form>
+
+@*Button to redirect from a given tour page back to the tour homepage*@
+<form style="text-align: center">
+    @Html.ActionLink("Tour Homepage", "Index", "Tour", new { id = 1 }, new { @class="btn btn-secondary" })
+</form>
