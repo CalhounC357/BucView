@@ -12,7 +12,7 @@
 <h2>@Model.Location?.Name</h2>
 <h4>@Model.Location?.Description</h4>
 
-<div id="carousel" class="carousel slide w-50" data-bs-ride="true">
+<div id="carousel" class="carousel slide w-50 mx-auto" data-bs-ride="true">
     <div class="carousel-indicators">
 
         @for (int i = 0; i < Model.Location.Images.Count; i++)  // Iterate through all the images, creating an indicator for each
@@ -39,16 +39,16 @@
             if (image == Model.Location.Images.First())
             {
                 <div class="carousel-item active">
-                    <img src="~/images/Locations/@image.ImageUrl" class="d-block w-100 h-100" alt="@Model.Location.Name-@image.Rank">
+                    <img src="~/images/Locations/@image.ImageUrl" style="display:block; margin:auto; height:auto" class="d-block w-100 h-100" alt="@Model.Location.Name-@image.Rank">
                 </div>
             }
             else
-{
+            {
                 <div class="carousel-item">
-                    <img src="~/images/Locations/@image.ImageUrl" class="d-block w-100 h-100" alt="@Model.Location.Name-@image.Rank">
+                    <img src="~/images/Locations/@image.ImageUrl" style="display:block; margin:auto; height:auto" class="d-block w-100 h-100" alt="@Model.Location.Name-@image.Rank">
                 </div>
             }
-}
+        }
 
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
