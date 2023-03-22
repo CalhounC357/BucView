@@ -37,7 +37,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Location");
+                    b.ToTable("Location", (string)null);
                 });
 
             modelBuilder.Entity("BucView.Models.LocationImage", b =>
@@ -62,7 +62,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.ToTable("LocationImage");
+                    b.ToTable("LocationImage", (string)null);
                 });
 
             modelBuilder.Entity("BucView.Models.LocationType", b =>
@@ -81,7 +81,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.ToTable("LocationType");
+                    b.ToTable("LocationType", (string)null);
                 });
 
             modelBuilder.Entity("BucView.Models.Tour", b =>
@@ -107,7 +107,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tour");
+                    b.ToTable("Tour", (string)null);
                 });
 
             modelBuilder.Entity("BucView.Models.TourLocation", b =>
@@ -134,7 +134,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasIndex("TourId");
 
-                    b.ToTable("TourLocation");
+                    b.ToTable("TourLocation", (string)null);
                 });
 
             modelBuilder.Entity("BucView.Models.TourLocationInterestPoint", b =>
@@ -158,7 +158,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasIndex("TourLocationId");
 
-                    b.ToTable("TourLocationInterestPoint");
+                    b.ToTable("TourLocationInterestPoint", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

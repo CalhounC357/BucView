@@ -16,5 +16,6 @@ namespace BucView.Models
         [Range(-90, 90)]
         public decimal Latitude { get; set; }
         public ICollection<LocationImage> Images { get; set; } = new List<LocationImage>();
+        public ICollection<LocationType> Types { get; set; } = new List<LocationType>();
     }
 }
