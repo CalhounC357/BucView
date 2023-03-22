@@ -27,6 +27,10 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\Migrations\" />
+    <Folder Include="wwwroot\images\Locations\Centennial Hall\" />
+    <Folder Include="wwwroot\images\Locations\Buc Ridge Trail\" />
+    <Folder Include="wwwroot\images\Locations\CSF\" />
+    <Folder Include="wwwroot\images\Locations\Parking Services\" />
     <Folder Include="wwwroot\images\test\" />
   </ItemGroup>
 
