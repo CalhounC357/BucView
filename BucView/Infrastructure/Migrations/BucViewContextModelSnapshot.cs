@@ -37,7 +37,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Location");
+                    b.ToTable("Location", (string)null);
                 });
 
             modelBuilder.Entity("BucView.Models.LocationImage", b =>
@@ -62,7 +62,26 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.ToTable("LocationImage");
+                    b.ToTable("LocationImage", (string)null);
+                });
+
+            modelBuilder.Entity("BucView.Models.LocationType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("LocationId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LocationId");
+
+                    b.ToTable("LocationType", (string)null);
                 });
 
             modelBuilder.Entity("BucView.Models.Tour", b =>
@@ -88,7 +107,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tour");
+                    b.ToTable("Tour", (string)null);
                 });
 
             modelBuilder.Entity("BucView.Models.TourLocation", b =>
@@ -115,7 +134,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasIndex("TourId");
 
-                    b.ToTable("TourLocation");
+                    b.ToTable("TourLocation", (string)null);
                 });
 
             modelBuilder.Entity("BucView.Models.TourLocationInterestPoint", b =>
@@ -139,7 +158,7 @@ namespace BucView.Infrastructure.Migrations
 
                     b.HasIndex("TourLocationId");
 
-                    b.ToTable("TourLocationInterestPoint");
+                    b.ToTable("TourLocationInterestPoint", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -338,6 +357,17 @@ namespace BucView.Infrastructure.Migrations
                 {
                     b.HasOne("BucView.Models.Location", "Location")
                         .WithMany("Images")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Location");
+                });
+
+            modelBuilder.Entity("BucView.Models.LocationType", b =>
+                {
+                    b.HasOne("BucView.Models.Location", "Location")
+                        .WithMany()
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
