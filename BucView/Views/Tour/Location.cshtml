@@ -62,10 +62,12 @@
     </button>
 </div>
 
-<h4><b>Next location:</b></h4>
+<h4><b>Directions to Next Location:</b></h4>
 
 <!-- Frame for the interactive location maps -->
-<iframe src="@Model.EmbeddedMapUrl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div style="text-align: center;">
+    <iframe src="@Model.EmbeddedMapUrl" width="600" height="450" style="border:0; margin: 0 auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 
 
 @*This makes the next button and back button appear the same style*@
