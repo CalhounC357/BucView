@@ -21,6 +21,8 @@ namespace BucView.Infrastructure
         public async Task<Location?> GetLocation(int locationId)
         {
             return await db.Location
+                .Include(l => l.Images)
+                .Include(l => l.Types)
                 .FirstOrDefaultAsync(l => l.Id == locationId);
         }
 
