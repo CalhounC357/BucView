@@ -1,6 +1,7 @@
 ﻿using BucView.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Identity;
 
 namespace BucView.Infrastructure
 {
@@ -77,6 +78,17 @@ namespace BucView.Infrastructure
                 .Include(t => t.Locations)
                     .ThenInclude(l => l.Location)
                 .ToListAsync();
+        }
+
+        public async Task<ICollection<LocationType>> ReadLocationByTags(Models.Type typeOne, Models.Type typeTwo)
+        {
+            return await db.LocationType
+                .Where(t1 => t1.Type == typeOne)
+                .Where(t2 => t2.Type == typeTwo)
+                .Include(l => l.Location)
+                .ToListAsync();
+
+
         }
     }
 }

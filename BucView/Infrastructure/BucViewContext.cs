@@ -23,5 +23,6 @@ namespace BucView.Infrastructure
         public DbSet<TourLocationInterestPoint> TourLocationInterestPoint => Set<TourLocationInterestPoint>();
         public DbSet<LocationImage> LocationImage => Set<LocationImage>();
         public DbSet<LocationType> LocationType => Set<LocationType>();
+
     }
 }
