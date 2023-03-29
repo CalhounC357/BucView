@@ -62,13 +62,11 @@
     </button>
 </div>
 
-<!--Text for the directions to the next location. Centered it.-->
-<h4><b>Directions to Next Location:</b></h4>
+<h4><b>Next location:</b></h4>
 
 <!-- Frame for the interactive location maps -->
-<div style="text-align: center;">
-    <iframe src="@Model.EmbeddedMapUrl" width="600" height="450" style="border:0; margin: 0 auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
+<!-- Added align center to center the map under the carasel-->
+<p align ="center"><iframe src="@Model.EmbeddedMapUrl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
 
 
 @*This makes the next button and back button appear the same style*@
