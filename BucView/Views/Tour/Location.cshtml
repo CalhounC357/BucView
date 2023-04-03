@@ -13,7 +13,15 @@
     }
 </style>
 
-<h1>@Model.Id</h1>
+@* Conditionally show progress in the tour based on current rank and total number of locations. *@
+@if (ViewData["LocationCount"] != null)
+{
+    <h1>@Model.Rank of @ViewData["LocationCount"]</h1>
+}
+else
+{
+    <h1>@Model.Rank</h1>
+}
 <h2>@Model.Location?.Name</h2>
 <h4>@Model.Location?.Description</h4>
 
