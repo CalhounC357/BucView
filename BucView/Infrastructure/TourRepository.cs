@@ -84,11 +84,8 @@ namespace BucView.Infrastructure
         {
             return await db.LocationType
                 .Where(t1 => t1.Type == typeOne)
-                .Where(t2 => t2.Type == typeTwo)
                 .Include(l => l.Location)
                 .ToListAsync();
-
-
         }
     }
 }

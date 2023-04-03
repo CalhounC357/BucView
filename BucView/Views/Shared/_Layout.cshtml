@@ -31,7 +31,8 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><h3 id="dropdown-title">On-Campus</h3></li>
                                 @{
-                                foreach (LocationType location in   
+                                    dynamic foodData = @ViewData["FoodData"];
+                                    foreach (LocationType location in foodData.LocationsOne )
                                 {
                                 <li>@Html.ActionLink(location.Location.Name, "Index", "Location", new {id=location.Location.Id}, null)</li>
                                 }
@@ -53,7 +54,8 @@
                                 <li><div class="dropdown-divider"></div></li>
                                 <li><h3 id="dropdown-title">Off-Campus</h3></li>
                                  @{
-                                foreach (LocationType location in   
+                                    dynamic foodDataTwo = @ViewData["myObject"];
+                                    foreach (LocationType location in foodDataTwo.LocationsTwo)   
                                 {
                                 <li>@Html.ActionLink(location.Location.Name, "Index", "Location", new {id=location.Location.Id}, null)</li>
                                 }
