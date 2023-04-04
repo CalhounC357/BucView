@@ -9,6 +9,7 @@
     h1 {text-align: center;}
     h3 {text-align: center; padding:10px}
     h4 {text-align: center;}
+    h5 {text-align: center;}
     b:link {color:#f4c52f; text-decoration:underline}
     b:visited {color:deeppink; text-decoration:none}
     b:hover {color:red}
@@ -17,6 +18,9 @@
 
 <h1>@Model.Name</h1>
 <h4>@Model.Description</h4>
+<hr />
+@*Displays the estimated time from the database. Displays a timer icon in front.*@
+<h5><img src="~/images/Timer.png" height="40" width="45" />Est. Time: @Model.EstimatedTime Minutes</h5>
 <hr />
 <h3><b>@Html.ActionLink("Start tour", "Location", "Tour", new {  tourId=Model.Id, rank=1  }, null)</b></h3>
 <hr />
