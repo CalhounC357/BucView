@@ -4,11 +4,24 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 <style>
-    h2 {text-align:center}
-    h4 {text-align:center}
+    h2 {
+        text-align: center
+    }
+
+    h4 {
+        text-align: center
+    }
 </style>
 
-<h1>@Model.Id</h1>
+@* Conditionally show progress in the tour based on current rank and total number of locations. *@
+@if (ViewData["LocationCount"] != null)
+{
+    <h1>@Model.Rank of @ViewData["LocationCount"]</h1>
+}
+else
+{
+    <h1>@Model.Rank</h1>
+}
 <h2>@Model.Location?.Name</h2>
 <h4>@Model.Location?.Description</h4>
 
@@ -17,7 +30,7 @@
 
         @for (int i = 0; i < Model.Location.Images.Count; i++)  // Iterate through all the images, creating an indicator for each
         {
-            
+
             // The first button needs the "active" class so the carousel indicators have a starting point
             if (i == 0)
             {
@@ -34,7 +47,7 @@
 
         @foreach (var image in Model.Location.Images)   // Iterate through all the images, creating div and img elements for each
         {
-            
+
             // The first image needs the "active" class so the carousel has a starting point
             if (image == Model.Location.Images.First())
             {
@@ -55,18 +68,22 @@
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
-   
+
     <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
 </div>
 
-<h4><b>Next location:</b></h4>
+@* Only display the next location heading and interactive map if there are remaining locations in the current tour. *@
+@if (ViewData["LocationCount"] == null || (int)ViewData["LocationCount"]! != @Model.Rank)
+{
+    <h4><b>Next location:</b></h4>
 
-<!-- Frame for the interactive location maps -->
-<!-- Added align center to center the map under the carasel-->
-<p align ="center"><iframe src="@Model.EmbeddedMapUrl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+    <!-- Frame for the interactive location maps -->
+    <!-- Added align center to center the map under the carasel-->
+    <p align="center"><iframe src="@Model.EmbeddedMapUrl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+}
 
 
 @*This makes the next button and back button appear the same style*@

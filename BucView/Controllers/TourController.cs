@@ -21,7 +21,12 @@ namespace BucView.Controllers
 
         public async Task<IActionResult> Location(int tourId, int rank)
         {
-            TourLocation tourLocation = await repo.GetTourLocation(tourId, rank);
+            TourLocation? tourLocation = await repo.GetTourLocation(tourId, rank);
+
+            // Pass the location count to the view so we can know if it's the final location in the tour.
+            int count = (await repo.GetTourLocations(tourId)).Count;
+            ViewData["LocationCount"] = count;
+
             return View(tourLocation);
         }
         
