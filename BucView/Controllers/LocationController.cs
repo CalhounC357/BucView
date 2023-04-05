@@ -16,8 +16,8 @@ namespace BucView.Controllers
         {
             /* Passes the data needed for _Layout Food Dropdown, It is needed in every View so it doesn't crash. */
             dynamic myModel = new ExpandoObject();
-            ICollection<LocationType> locationsOnCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OnCampus);
-            ICollection<LocationType> locationsOffCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OffCampus);
+            ICollection<Location> locationsOnCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OnCampus);
+            ICollection<Location> locationsOffCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OffCampus);
             myModel.LocationsOne = locationsOnCampus;
             myModel.LocationsTwo = locationsOffCampus;
             ViewData["FoodData"] = myModel;
