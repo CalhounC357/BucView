@@ -95,8 +95,8 @@ namespace BucView.Infrastructure
 
             ICollection< Location > locations = new List<Location>();
 
-            foreach (int x in queryThree){
-               var queryFour = await db.Location.FirstOrDefaultAsync(l => l.Id == x);
+            foreach (int locationId in queryThree){
+               var queryFour = await db.Location.FirstOrDefaultAsync(l => l.Id == locationId);
                locations.Add(queryFour);
                Debug.WriteLine(locations);
             }
