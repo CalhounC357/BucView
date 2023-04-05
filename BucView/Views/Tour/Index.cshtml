@@ -20,7 +20,7 @@
 <h4>@Model.Description</h4>
 <hr />
 @*Displays the estimated time from the database. Displays a timer icon in front.*@
-<h5><img src="~/images/Timer.png" height="40" width="45" />Est. Time: @Model.EstimatedTime Minutes</h5>
+<h5><img src="~/images/Timer.png" height="40" width="40" />Est. Time: @Model.EstimatedTime Minutes</h5>
 <hr />
 <h3><b>@Html.ActionLink("Start tour", "Location", "Tour", new {  tourId=Model.Id, rank=1  }, null)</b></h3>
 <hr />
