@@ -1,0 +1,21 @@
+Google api ideas:
+- Retrieve map/directions from microservice
+  * We already have this implemented mostly so would just be a waste of time probably
+- Retrieve esoteric data like elevation, streetview imagery, etc
+  * Elevation is useless, streetview imagery probably won't be there for each location (and would also likely be outdated, i.e. current culp center imagery is very old)
+- Show reviews / google place data like phone number etc
+  * Might not find the right location based on coordinates
+  * Might not be reviews/data to present
+
+
+GIS related ideas:
+- Show nearby parking lots or parking spots
+  * there is a csv file with list of parking lots; another one with list of all parking spots, parking lot they're in, and their type (faculty/student/etc)
+  * you will send coordinates to microservice
+  * microservice will go through parking spots database and find the nearest spots to the building
+  * then it will order a list of the parking lots based on nearest spots
+  * filter by which ones have available spots (if we can connect to whatever api etsu has to access current parking data)
+  * ability to filter nearby parking by what kind of parking you can park in: student/faculty/etc
+  * microservice would deliver info in a json package
+- Show nearby elevators/entrances for accessibility
+  * The data for these aren't associated to the buildings so this would be hard to know if the elevators/etc actually are in the building or relate to it
