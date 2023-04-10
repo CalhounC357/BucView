@@ -28,9 +28,6 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\Migrations\" />
-    <Folder Include="wwwroot\images\Locations\Nursing_Testing_Center\" />
-    <Folder Include="wwwroot\images\Locations\Nursing_Skills_Lab\" />
-    <Folder Include="wwwroot\images\Locations\Nursing_Sim_Labs\" />
     <Folder Include="wwwroot\images\Locations\Nursing_Computer_Labs\" />
     <Folder Include="wwwroot\images\test\" />
   </ItemGroup>
