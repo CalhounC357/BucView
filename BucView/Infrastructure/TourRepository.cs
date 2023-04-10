@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Identity;
 using System.Collections.Immutable;
-using System.Diagnostics;
 using System.Linq;
 
 namespace BucView.Infrastructure
@@ -90,15 +89,11 @@ namespace BucView.Infrastructure
 
             var queryThree = queryOne.Select(t1 => t1.LocationId).Intersect(queryTwo.Select(t2 => t2.LocationId));
 
-            Debug.WriteLine(queryOne.Count() + " " + queryTwo.Count());
-            Debug.WriteLine(queryThree.Count());
-
             ICollection< Location > locations = new List<Location>();
 
             foreach (int locationId in queryThree){
                 Task<Location?> task = db.Location.FirstOrDefaultAsync(l => l.Id == locationId);
                 locations.Add( await task);
-               Debug.WriteLine(locations);
             }
 
             return locations;
