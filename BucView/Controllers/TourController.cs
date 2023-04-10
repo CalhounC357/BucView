@@ -3,6 +3,7 @@ using BucView.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 using Microsoft.Data.Sqlite;
+using System.Dynamic;
 
 namespace BucView.Controllers
 {
@@ -15,18 +16,31 @@ namespace BucView.Controllers
         }
         public async Task<IActionResult> Index(int id)
         {
+            /* Passes the data needed for _Layout Food Dropdown, It is needed in every View so it doesn't crash. */
+            dynamic myModel = new ExpandoObject();
+            ICollection<Location> locationsOnCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OnCampus);
+            ICollection<Location> locationsOffCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OffCampus);
+            myModel.LocationsOne = locationsOnCampus;
+            myModel.LocationsTwo = locationsOffCampus;
+            ViewData["FoodData"] = myModel;
+            /* Code Chunk ends */
+
             Tour? tour = await repo.GetTour(id);
             return View(tour);
         }
 
         public async Task<IActionResult> Location(int tourId, int rank)
         {
-            TourLocation? tourLocation = await repo.GetTourLocation(tourId, rank);
+            /* Passes the data needed for _Layout Food Dropdown, It is needed in every View so it doesn't crash. */
+            dynamic myModel = new ExpandoObject();
+            ICollection<Location> locationsOnCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OnCampus);
+            ICollection<Location> locationsOffCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OffCampus);
+            myModel.LocationsOne = locationsOnCampus;
+            myModel.LocationsTwo = locationsOffCampus;
+            ViewData["FoodData"] = myModel;
+            /* Code Chunk ends */
 
-            // Pass the location count to the view so we can know if it's the final location in the tour.
-            int count = (await repo.GetTourLocations(tourId)).Count;
-            ViewData["LocationCount"] = count;
-
+            TourLocation tourLocation = await repo.GetTourLocation(tourId, rank);
             return View(tourLocation);
         }
         

@@ -30,12 +30,23 @@
                             </a>
                             <!--This is the dropdown menu options-->
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><h5 id="dropdown-title">On-Campus</h5></li>
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><h3 id="dropdown-title">On-Campus</h3></li>
+                                @{
+                                    dynamic foodData = @ViewData["FoodData"];
+                                    foreach (Location location in foodData.LocationsOne )
+                                {
+                                <li>@Html.ActionLink(location.Name, "Index", "Location", new {id=location.Id}, null)</li>
+                                }
+                                }
                                 <li><div class="dropdown-divider"></div></li>
-                                <li><h5 id="dropdown-title">Off-Campus</h5></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><h3 id="dropdown-title">Off-Campus</h3></li>
+                                 @{
+                                    dynamic foodDataTwo = @ViewData["FoodData"];
+                                    foreach (Location location in foodDataTwo.LocationsTwo)   
+                                {
+                                <li>@Html.ActionLink(location.Name, "Index", "Location", new {id=location.Id}, null)</li>
+                                }
+                                }
                             </ul>
                         </li>
                     </ul>
