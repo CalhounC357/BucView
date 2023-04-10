@@ -15,6 +15,7 @@
 
 
     @* TODO: Cannot get list items to center, tried multiple solutions. Look further into this. -Dylan *@
+    @* Added a line break after each item in the dropdown. -Kyle*@
     <!-- Tour dropdown menu -->
     <div id="dropdown-container">
         <h2 id="dropdown-title">Tours</h2>
@@ -22,7 +23,7 @@
         @{
           foreach (Tour tour in Model) 
           {
-            <li>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, null)</li>
+            <li>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, null) <br /><br /> </li>
           }
         }
         </ul>
