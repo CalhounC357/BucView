@@ -54,7 +54,7 @@
                                 <li><div class="dropdown-divider"></div></li>
                                 <li><h3 id="dropdown-title">Off-Campus</h3></li>
                                  @{
-                                    dynamic foodDataTwo = @ViewData["myObject"];
+                                    dynamic foodDataTwo = @ViewData["FoodData"];
                                     foreach (Location location in foodDataTwo.LocationsTwo)   
                                 {
                                 <li>@Html.ActionLink(location.Name, "Index", "Location", new {id=location.Id}, null)</li>
