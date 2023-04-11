@@ -1,9 +1,6 @@
 ﻿using BucView.Infrastructure;
 using BucView.Models;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
-using System.Composition;
 using System.Diagnostics;
 using System.Dynamic;
 
