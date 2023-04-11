@@ -1,0 +1,7 @@
+The microservice will be a simple ASP.NET Core app. It will have two csv files for parking lot data and parking spot data, and will load this data in on startup as objects "ParkingSpot" and "ParkingLot".
+
+The main app will call the microservice using an api link like url/api/nearbyparking?lat=34.00&long=-64.53
+The microservice will return a json package with associated information
+
+It will return the nearest parking lots to the given location, sorted by the proximity to the location (if amount of parking in lot data is available, this will be factored into the sort, so lots with little/no parking will not be high in the list). It will be filterable by type of parking spot.
+
