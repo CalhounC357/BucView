@@ -75,8 +75,8 @@ else
     </button>
 </div>
 
-@* Only display the next location heading and interactive map if there are remaining locations in the current tour. *@
-@if (ViewData["LocationCount"] == null || (int)ViewData["LocationCount"]! != @Model.Rank)
+@* Only display the next location heading and interactive map if there exists a map for the current location. *@
+@if (Model.EmbeddedMapUrl != null)
 {
     <h4><b>Next location:</b></h4>
 
