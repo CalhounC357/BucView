@@ -23,7 +23,7 @@
         @{
           foreach (Tour tour in Model) 
           {
-            <li>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, null) <br /><br /> </li>
+            <li>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, new { @class= "myactionLink"} ) <br /><br /> </li>
           }
         }
         </ul>
@@ -44,8 +44,14 @@
 </div>
 
 <!--This is used to center the .png map on the page-->
+<!-- Changes link color to dark blue.-->
 <style>
     .aligncenter {
         text-align: center;
     }
+
+    .myactionLink {
+        color: darkblue
+    }
 </style>
+

@@ -22,6 +22,7 @@ body {
 }
 
 #dropdown-container {
+    text-align: center;
 }
 
 #dropdown-title {
@@ -45,3 +46,4 @@ body {
     min-width: 500px;
     min-height: 400px;
 }
+
