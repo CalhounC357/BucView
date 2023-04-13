@@ -32,6 +32,22 @@ namespace BucView.Controllers
             return View(tours);
         }
 
+        public async Task<IActionResult> Parking()
+        {
+            /* Passes the data needed for _Layout Food Dropdown, It is needed in every View so it doesn't crash. */
+            dynamic myModel = new ExpandoObject();
+            ICollection<Location> locationsOnCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OnCampus);
+            ICollection<Location> locationsOffCampus = await repo.ReadLocationByTags(Models.Type.Food, Models.Type.OffCampus);
+            myModel.LocationsOne = locationsOnCampus;
+            myModel.LocationsTwo = locationsOffCampus;
+            ViewData["FoodData"] = myModel;
+            /* Code Chunk ends */
+
+            var model = new List<Location>();
+            model.Add(new Location { Latitude = 0, Longitude = 0, Name = "test" });
+            return View(model);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
