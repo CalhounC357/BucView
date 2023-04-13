@@ -6,20 +6,20 @@
 
     <!-- Location select -->
     <label for="location-select">Location:</label>
-    <select id="location-select" name="locations">
+    <select id="location-select" name="location-select">
         @foreach (var location in Model)
         {
             if (location.Latitude != null && location.Latitude != null)
+            {
                 <option value="@location.Latitude,@location.Longitude">@location.Name</option>
+            }
         }
     </select>
 
     <!-- Parking type select -->
     <label for="parking-select">Parking Type:</label>
-    <radio id="parking-select" name="parking types">
-        <option value="student">Student</option>
-        <option value="faculty/staff">Faculty/Staff</option>
-    </radio>
+    <input type="radio" name="parking-select" value="student">Student</input>
+    <input type="radio" name="parking-select" value="faculty/staff">Faculty/Staff</input>
 
     <!-- Form submit button (behavior defined in JS) -->
     <input type="button" id="form-submit" value="Submit" />
