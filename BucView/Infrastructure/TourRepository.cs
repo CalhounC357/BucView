@@ -1,5 +1,4 @@
 ﻿using BucView.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BucView.Infrastructure
@@ -79,6 +78,24 @@ namespace BucView.Infrastructure
                 .Include(t => t.Locations)
                     .ThenInclude(l => l.Location)
                 .ToListAsync();
+        }
+
+        public async Task<ICollection<Location>> ReadLocationByTags(Models.Type typeOne, Models.Type typeTwo)
+        {
+            var queryOne = await db.LocationType.Where(t1 => t1.Type == typeOne).Include(t1 => t1.Location).ToListAsync();
+            var queryTwo = await db.LocationType.Where(t2 => t2.Type == typeTwo).Include(t2 => t2.Location).ToListAsync();
+
+            var queryThree = queryOne.Select(t1 => t1.LocationId).Intersect(queryTwo.Select(t2 => t2.LocationId));
+
+            ICollection< Location > locations = new List<Location>();
+
+            foreach (int locationId in queryThree){
+                Task<Location?> task = db.Location.FirstOrDefaultAsync(l => l.Id == locationId);
+                locations.Add( await task);
+            }
+
+            return locations;
+
         }
     }
 }

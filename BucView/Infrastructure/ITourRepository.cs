@@ -12,5 +12,6 @@ namespace BucView.Infrastructure
         Task<ICollection<Location>> ReadLocations();
         Task<Location?> GetLocation(int locationId);
         Task<ICollection<LocationImage>> GetImages(int locationId);
+        Task<ICollection<Location>> ReadLocationByTags(Models.Type typeOne, Models.Type typeTwo);
     }
 }
