@@ -14,11 +14,11 @@ namespace BucParking.Models
         {
             String[] values = csvLine.Split(',');
             ParkingSpot parkingSpotsData = new ParkingSpot();
-            parkingSpotsData.Id = ;
+            parkingSpotsData.Id = int.Parse(values[3]);
             parkingSpotsData.ParkingLotId = int.Parse(values[5]);
             parkingSpotsData.Latitude = double.Parse(values[1]);
             parkingSpotsData.Longitude = double.Parse(values[0]);
-            parkingSpotsData.Type = ;
+            parkingSpotsData.Type = Enum.Parse<ParkingType>(values[6], true);
 
             return parkingSpotsData;
         }

@@ -13,9 +13,11 @@
         {
             String[] values = csvLine.Split(',');
             ParkingLot parkingLotData = new ParkingLot();
-            parkingLotData.Id = ;
-            parkingLotData.Name = ;
-
+            parkingLotData.Id = int.Parse(values[0]);
+            parkingLotData.Name = values[3];
+            parkingLotData.ShapeLength = double.Parse(values[4]);
+            parkingLotData.ShapeArea = double.Parse(values[5]);
+            return parkingLotData;
 
         }
     }
