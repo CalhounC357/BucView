@@ -16,19 +16,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-List<ParkingLot> parkingLotData = File.ReadAllLines("~/data/Parking_Lots.csv")
-    .Skip(1)
-    .Select(v => ParkingLot.LotFromCsv(v))
-    .ToList();
-
-List<ParkingSpot> parkingSpotData = File.ReadAllLines("~/data/Parking_Spots.csv")
-    .Skip(1)
-    .Select(v => ParkingSpot.SpotsFromCsv(v))
-    .ToList();
-
-Debug.WriteLine(parkingSpotData.Count);
-Debug.WriteLine(parkingLotData.Count);
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -37,5 +24,15 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+List<ParkingLot> parkingLotData = File.ReadAllLines(@"wwwroot/data/Parking_Lots.csv")
+	.Skip(1)
+	.Select(v => ParkingLot.LotFromCsv(v))
+	.ToList();
+
+List<ParkingSpot> parkingSpotData = File.ReadAllLines(@"wwwroot/data/Parking_Spots.csv")
+	.Skip(1)
+	.Select(v => ParkingSpot.SpotsFromCsv(v))
+	.ToList();
 
 app.Run();
