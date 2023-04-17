@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BucView", "BucView\BucView.csproj", "{407800B3-4A24-4891-9D4A-36A9DC61CEB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BucParking", "BucParking\BucParking.csproj", "{A17BFF83-F7EB-4E07-B425-CE55623B6BF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{407800B3-4A24-4891-9D4A-36A9DC61CEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{407800B3-4A24-4891-9D4A-36A9DC61CEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{407800B3-4A24-4891-9D4A-36A9DC61CEB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A17BFF83-F7EB-4E07-B425-CE55623B6BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17BFF83-F7EB-4E07-B425-CE55623B6BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17BFF83-F7EB-4E07-B425-CE55623B6BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17BFF83-F7EB-4E07-B425-CE55623B6BF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
