@@ -1,0 +1,27 @@
+﻿@model ICollection<Location>
+
+<p>Select a location and desired parking type from the form below, and we'll find you the nearest parking lot.</p>
+
+<form id="parking-form">
+
+    <!-- Location select -->
+    <label for="location-select">Location:</label>
+    <select id="location-select" name="location-select">
+        @foreach (var location in Model)
+        {
+            if (location.Latitude != null && location.Latitude != null)
+            {
+                <option value="@location.Latitude,@location.Longitude">@location.Name</option>
+            }
+        }
+    </select>
+
+    <!-- Parking type select -->
+    <label for="parking-select">Parking Type:</label>
+    <input type="radio" name="parking-select" value="student">Student</input>
+    <input type="radio" name="parking-select" value="faculty/staff">Faculty/Staff</input>
+
+    <!-- Form submit button (behavior defined in JS) -->
+    <input type="button" id="form-submit" value="Submit" />
+
+</form>
