@@ -7,7 +7,7 @@ var loadingFlag = false;
 // Event listener that listens for clicks on the form submit button.
 // When a click is heard, an API request gets sent with current form data
 // and the page gets updated when the request returns.
-submitButton.addEventListener("click", (e) => {
+submitButton.addEventListener("click", async (e) => {
 
     if (!loadingFlag) {
 
@@ -47,7 +47,7 @@ function clearSpinner() {
 }
 
 // Send a request to the API URL and handle the response
-function sendRequest() {
+async function sendRequest() {
     let response = await fetch(apiUrl, {
         body: new FormData(parkingForm)
     });
