@@ -1,6 +1,7 @@
 ﻿const apiUrl = "";
 const submitButton = document.getElementById("form-submit");
 const parkingForm = document.getElementById("parking-form");
+const parkingData = document.getElementById("parking-data");
 var loadingFlag = false;
 
 // Event listener that listens for clicks on the form submit button.
@@ -24,9 +25,7 @@ submitButton.addEventListener("click", (e) => {
 // Remove content from the submit button and add a loading spinner and text
 function addSpinner() {
 
-    while (submitButton.firstChild) {
-        submitButton.removeChild(submitButton.firstChild);
-    }
+    removeChildren(submitButton);
 
     let spinner = document.createElement("span");
     spinner.classList.add("spinner-border");
@@ -41,9 +40,7 @@ function addSpinner() {
 // Remove content from the submit button and add submit text
 function clearSpinner() {
 
-    while (submitButton.firstChild) {
-        submitButton.removeChild(submitButton.firstChild);
-    }
+    removeChildren(submitButton);
 
     let submitText = document.createTextNode("Submit");
     submitButton.appendChild(submitText);
@@ -60,5 +57,13 @@ function sendRequest() {
     }
     else {
         // say that there was an error
+    }
+}
+
+// Remove all the children from an element
+function removeChildren(element) {
+
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
     }
 }
