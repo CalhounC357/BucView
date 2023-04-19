@@ -48,3 +48,17 @@ function clearSpinner() {
     let submitText = document.createTextNode("Submit");
     submitButton.appendChild(submitText);
 }
+
+// Send a request to the API URL and handle the response
+function sendRequest() {
+    let response = await fetch(apiUrl, {
+        body: new FormData(parkingForm)
+    });
+
+    if (response.ok) {
+        // load response data into the page
+    }
+    else {
+        // say that there was an error
+    }
+}
