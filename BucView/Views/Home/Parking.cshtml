@@ -1,12 +1,16 @@
 ﻿@model ICollection<Location>
 
-<p>Select a location and desired parking type from the form below, and we'll find you the nearest parking lot.</p>
+<div class="header">
+<img class="parking-logo" src="~/images/logos/parking_image.jpg" alt="PARKING LOGO"/>
+<p class="title">Select a location and desired parking type from the form below, and we'll find you the nearest parking lot.</p>
+</div>
 
 <form id="parking-form">
 
     <!-- Location select -->
+    <div class="select-container">
     <label for="location-select">Location:</label>
-    <select id="location-select" name="location-select">
+    <select class="location-select" name="location-select">
         @foreach (var location in Model)
         {
             if (location.Latitude != null && location.Latitude != null)
@@ -15,7 +19,10 @@
             }
         }
     </select>
+    <br /><br />
+    </div>
 
+    <div class="button-container">
     <!-- Parking type select -->
     <label for="parking-select">Parking Type:</label>
     <input type="radio" name="parking-select" value="student">Student</input>
@@ -31,6 +38,40 @@
     </div>
 
 </form>
+
+<!-- Button to return to homepage-->
+<form style="text-align: left">
+    @Html.ActionLink("<-- Go Back Ya Dingus!", "Index", "Home", null, new { @class="btn btn-secondary" })
+</form>
+
+<style>
+    .header {
+        text-align: center;
+    }
+
+    .parking-logo {
+        max-width: 500px;
+        align-self: center;
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .select-container {
+        text-align: center;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+
+    .location-select {
+        text-align: center;
+    }
+
+</style>
 
 @section Scripts{
     <script src="~/js/parking-api.js"></script>
