@@ -35,7 +35,4 @@ List<ParkingLot> parkingLotData = File.ReadAllLines(@"wwwroot/data/Parking_Lots.
 	.Select(v => ParkingLot.LotFromCsv(v))
 	.ToList();
 
-Debug.WriteLine(parkingLotData);
-Debug.Write(parkingLotData.Count);
-Debug.WriteLine(parkingLotData[2].ParkingSpots.Count);	
 app.Run();
