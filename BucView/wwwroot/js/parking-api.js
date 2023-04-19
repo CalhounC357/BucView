@@ -21,11 +21,11 @@ submitButton.addEventListener("click", async (e) => {
         let testData = {
             "parking_lots": [
                 {
-                    "lot_name": "1",
-                    "available_spots": 200,
-                    "closest_lat": 37.7749,
-                    "closest_long": -122.4194,
-                    "distance": 1,
+                    "lot_name": Math.round(Math.random() * 30),
+                    "available_spots": Math.round(Math.random() * 150),
+                    "closest_lat": Math.random() * 50,
+                    "closest_long": Math.random() * 50,
+                    "distance": Math.round(Math.random() * 4),
                 }
             ]
         };
