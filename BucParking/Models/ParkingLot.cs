@@ -3,7 +3,7 @@
     public class ParkingLot
     {
         public int Id { get; set; }
-        public string LotNum { get; set; }
+        public string LotNum { get; set; } = string.Empty;
         public double ShapeLength { get; set; }
         public double ShapeArea { get; set; }
 
@@ -22,12 +22,7 @@
             parkingLotData.LotNum = values[3];
             parkingLotData.ShapeLength = double.Parse(values[4]);
             parkingLotData.ShapeArea = double.Parse(values[5]);
-            foreach (var parkingSpot in parkingSpotData)
-            {
-                if (String.Equals(parkingSpot.Id, parkingLotData.LotNum)){
-                    parkingLotData.ParkingSpots.Add(parkingSpot);
-                }
-            }
+            parkingLotData.ParkingSpots.AddRange(parkingSpotData.Where(v => String.Equals(v.ParkingLotId, parkingLotData.LotNum)));
 			return parkingLotData;
 
         }

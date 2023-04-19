@@ -37,5 +37,5 @@ List<ParkingLot> parkingLotData = File.ReadAllLines(@"wwwroot/data/Parking_Lots.
 
 Debug.WriteLine(parkingLotData);
 Debug.Write(parkingLotData.Count);
-Debug.WriteLine(parkingLotData[7].ParkingSpots.Count);	
+Debug.WriteLine(parkingLotData[2].ParkingSpots.Count);	
 app.Run();
