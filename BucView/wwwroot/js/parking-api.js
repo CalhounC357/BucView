@@ -77,7 +77,7 @@ async function sendRequest() {
     }
     else {
         // Say that there was an error
-        displayError();
+        window.alert("There was an error retrieving the information. Please try again later.");
     }
 }
 
