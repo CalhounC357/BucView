@@ -1,9 +1,14 @@
+using BucParking.Models;
+using System.Diagnostics;
+using BucParking.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
 builder.Services.AddControllers();
+builder.Services.AddSingleton<IParkingData, ParkingData>(); 
 
 var app = builder.Build();
 
@@ -27,5 +32,6 @@ app.MapControllerRoute(
 app.UseAuthorization();
 
 app.MapRazorPages();
+
 
 app.Run();
