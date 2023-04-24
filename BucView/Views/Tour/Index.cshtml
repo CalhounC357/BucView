@@ -5,6 +5,7 @@
     It gives info about the tour, and links to the starting location in the tour
 *@
 @*This aligns the H1 to the center of the page*@
+
 <style>  
     h1 {text-align: center;}
     h3 {text-align: center; padding:10px}
@@ -55,7 +56,7 @@
 
 @*Button to go to the next tour*@
 <form style=" text-align: right">
-    @Html.ActionLink("Go To Next Tour", "Tour", new { tourid = Model.Id, rank = Model.Rank + 2}, new { @class="btn btn-secondary" })
+    @Html.ActionLink("Go To Next Tour", "Index", "Tour", new { id = Model.Id + 1}, new { @class="btn btn-secondary" })
 </form>
 
 
