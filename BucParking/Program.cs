@@ -1,5 +1,6 @@
 using BucParking.Models;
 using System.Diagnostics;
+using BucParking.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddControllers();
+builder.Services.AddSingleton<IParkingData, ParkingData>(); 
 
 var app = builder.Build();
 
@@ -31,14 +33,5 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-List<ParkingSpot> parkingSpotData = File.ReadAllLines(@"wwwroot/data/Parking_Spots.csv")
-		.Skip(1)
-		.Select(v => ParkingSpot.SpotsFromCsv(v))
-		.ToList();
-
-List<ParkingLot> parkingLotData = File.ReadAllLines(@"wwwroot/data/Parking_Lots.csv")
-		.Skip(1)
-		.Select(v => ParkingLot.LotFromCsv(v))
-		.ToList();
 
 app.Run();

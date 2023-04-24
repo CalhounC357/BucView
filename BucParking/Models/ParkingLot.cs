@@ -1,4 +1,6 @@
-﻿namespace BucParking.Models
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace BucParking.Models
 {
     public class ParkingLot
     {
@@ -26,5 +28,6 @@
 			return parkingLotData;
 
         }
+
     }
 }
