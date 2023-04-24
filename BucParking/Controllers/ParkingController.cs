@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text.Json.Nodes;
+using BucParking.Service;
+
 
 namespace BucParking.Controllers
 {
@@ -10,9 +12,23 @@ namespace BucParking.Controllers
     [ApiController]
     public class ParkingController : ControllerBase
     {
+
+        private readonly IParkingData parkingData;
+
+        public ParkingController (IParkingData _parkingData)
+        {
+           parkingData = _parkingData;
+            
+        }
+
+
+
         [HttpGet("nearby")]
         public ActionResult<string> Nearby(int lat, int lon, string filter)
         {
+            //Test to check if data is retrieved.
+            //var count = parkingData.parkingSpots.Count;
+            
             var lotjson = new
             {
                 lot_name = "asdf",
@@ -41,13 +57,13 @@ namespace BucParking.Controllers
         }
 
         public ActionResult<ParkingSpot> Nearby()
-        {
+        { 
             ParkingSpot spot = new ParkingSpot();
             spot.Longitude = 1;
             spot.Latitude = 1;
-            spot.Id = 2;
-            spot.ParkingLotId = 3;
+            
             return spot;
+
         }
     }
 }
