@@ -90,7 +90,7 @@ else
 <form>
     <input type="button"
            value="Next!-->"
-           onclick="window.location.href='@Url.Action("Next Location", "Tour", new { tourId = Model.TourId, rank = Model.Rank + 1 })';"
+           onclick="window.location.href='@Url.Action("Location", "Tour", new { tourId = Model.TourId, rank = Model.Rank + 1 })';"
            class="btn btn-secondary float-end">
 </form>
 
@@ -104,5 +104,5 @@ else
 
 @*Button to redirect from a given tour page back to the tour homepage*@
 <form style="text-align: center">
-    @Html.ActionLink("Tour Homepage", "Index", "Tour", new { id = Model.TourId }, new { @class="btn btn-secondary" })
+    @Html.ActionLink("Tour Homepage", "Index", "Tour", new { id = Model.TourId }, new { @class="btn btn-warning" })
 </form>
