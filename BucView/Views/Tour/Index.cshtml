@@ -5,12 +5,13 @@
     It gives info about the tour, and links to the starting location in the tour
 *@
 @*This aligns the H1 to the center of the page*@
+
 <style>  
     h1 {text-align: center;}
     h3 {text-align: center; padding:10px}
     h4 {text-align: center;}
     h5 {text-align: center;}
-    b:link {color:#f4c52f; text-decoration:underline}
+    b:link {color:#f4c52f}
     b:visited {color:deeppink; text-decoration:none}
     b:hover {color:red}
 </style>
@@ -34,7 +35,7 @@
         h2 {text-align: center; background-color:#f4c52f; padding:10px}
         h6 {text-align: center;}
         @*This changes the link color-profile*@
-        a:link {color:darkblue; text-decoration:underline}
+        a:link {color:darkblue}
         a:visited {color:#d21f3c; text-decoration:none}
         a:hover {color:red}
         </style>
@@ -50,8 +51,14 @@
    
 @*Button to redirect from a given tour page back to the homepage*@
 <form style="text-align: left">
-    @Html.ActionLink("<-- Go Back Ya Dingus!", "Index", "Home", new { id = Model.Id }, new { @class="btn btn-secondary" })
+        @Html.ActionLink("<-- Go Back Ya Dingus!", "Index", "Home", new { id = Model.Id }, new { @class="btn", style="background-color: #001c43; border-color: #001c43; color: #fff;" })
 </form>
+
+@*Button to go to the next tour*@
+<form style=" text-align: right">
+    @Html.ActionLink("Go To Next Tour", "Index", "Tour", new { id = Model.Id + 1}, new { @class="btn btn-secondary" })
+</form>
+
 
   }
 

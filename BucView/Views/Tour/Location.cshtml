@@ -86,12 +86,16 @@ else
 }
 
 
-@*This makes the next button and back button appear the same style*@
+@*This makes the next button and back button appear the same style
+    Also some sketchy styling to set the button color to the same as the header (same as back button)
+*@
 <form>
+
     <input type="button"
            value="Next!-->"
-           onclick="window.location.href='@Url.Action("Location", "Tour", new { tourId = Model.TourId, rank = Model.Rank + 1 })';"
-           class="btn btn-secondary float-end">
+           onclick="window.location.href='@Url.Action("NextLocation", "Tour", new { tourId = Model.TourId, rank = Model.Rank + 1 })';"
+           class="btn btn-primary float-end" 
+           style="--bs-btn-bg: #001c43; --bs-btn-border-color: #001c43">
 </form>
 
 @*Adds a back button to the screen. It adjust to what page you just come from*@
@@ -99,10 +103,12 @@ else
     <input type="button"
            value="<-- Go Back!"
            onclick="history.back()"
-           class="btn btn-secondary">
+           class="btn btn-primary" 
+           style="--bs-btn-bg: #001c43; --bs-btn-border-color: #001c43">
 </form>
 
 @*Button to redirect from a given tour page back to the tour homepage*@
 <form style="text-align: center">
     @Html.ActionLink("Tour Homepage", "Index", "Tour", new { id = Model.TourId }, new { @class="btn btn-warning" })
 </form>
+
