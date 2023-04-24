@@ -53,6 +53,12 @@
     @Html.ActionLink("<-- Go Back Ya Dingus!", "Index", "Home", new { id = Model.Id }, new { @class="btn btn-secondary" })
 </form>
 
+@*Button to go to the next tour*@
+<form style=" text-align: right">
+    @Html.ActionLink("Go To Next Tour", "Tour", new { tourid = Model.Id, rank = Model.Rank + 2}, new { @class="btn btn-secondary" })
+</form>
+
+
   }
 
   
