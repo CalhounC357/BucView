@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text.Json.Nodes;
+using System.Device.Location;
+
 
 namespace BucParking.Controllers
 {
@@ -49,5 +51,13 @@ namespace BucParking.Controllers
             spot.ParkingLotId = 3;
             return spot;
         }
-    }
+
+        public string GetUserLocation(double latitude, double longitude)
+        {
+            // Create a GeoCoordinate object for the user's location
+            GeoCoordinate userLocation = new GeoCoordinate(latitude, longitude);
+            return latitude + ", " + longitude; // Can't figure out a better return method than this one.
+        }
+
+}
 }
