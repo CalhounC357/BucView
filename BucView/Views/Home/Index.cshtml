@@ -23,7 +23,13 @@
         @{
           foreach (Tour tour in Model) 
           {
-            <li>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, new { @class= "myactionLink"} ) <br /><br /> </li>
+           <style> 
+           @*This changes the link color-profile*@
+        a:link {color:darkblue; text-decoration:underline}
+        a:visited {color:#d21f3c; text-decoration:none}
+        a:hover {color:red}
+        </style>   
+            <li><a>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, new { @class= "myactionLink"} ) <br /><br /> </li>
           }
         }
         </ul>

@@ -5,12 +5,14 @@ using Newtonsoft.Json;
 using System.Text.Json.Nodes;
 using BucParking.Service;
 
+
 namespace BucParking.Controllers
 {
     [Route("api/parking")]
     [ApiController]
     public class ParkingController : ControllerBase
     {
+
         private readonly IParkingData parkingData;
 
         public ParkingController (IParkingData _parkingData)
@@ -61,7 +63,7 @@ namespace BucParking.Controllers
             spot.Latitude = 1;
             
             return spot;
-            
+
         }
     }
 }
