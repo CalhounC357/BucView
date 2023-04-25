@@ -23,14 +23,21 @@ namespace BucParking.Controllers
             
         }
 
-
-
         [HttpGet("nearby")]
-        public ActionResult<string> Nearby(int lat, int lon, string filter)
+        public ActionResult<string> Nearby(decimal lat, decimal lon, string filter)
         {
             //Test to check if data is retrieved.
             //var count = parkingData.parkingSpots.Count;
-            
+            List<ParkingLot> lots = new List<ParkingLot>();
+            Dictionary<ParkingSpot, double> spotsAndDistance = new Dictionary<ParkingSpot, double>();
+            foreach (ParkingSpot spot in parkingData.parkingSpots)
+            {
+                decimal spotLat = spot.Latitude;
+                decimal spotLon = spot.Longitude;
+                double distance = Math.Sqrt(Math.Pow((double)(spotLat - lat), 2) + Math.Pow((double)(spotLon - lon), 2));
+                spotsAndDistance.Add(spot, distance);
+            }
+
             var lotjson = new
             {
                 lot_name = "asdf",
@@ -51,9 +58,9 @@ namespace BucParking.Controllers
                 map_link = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZ8b99Yp-j4ARDrTtb1dK0vg"
             };
 
-            var lots = new object[] { lotjson, lotjson2 };
+            var lotstest = new object[] { lotjson, lotjson2 };
 
-            string jsonData = JsonConvert.SerializeObject(lots);
+            string jsonData = JsonConvert.SerializeObject(lotstest);
 
             return jsonData;
         }
