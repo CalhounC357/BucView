@@ -52,7 +52,7 @@ namespace BucParking.Controllers
                 double distance = Math.Sqrt(Math.Pow((double)(spotLat - lat), 2) + Math.Pow((double)(spotLon - lon), 2));
                 // converts to mile from degree of longitude/latitude
                 // longitude is 54.6 and latitude is 69 so this is an inaccurate average but close enough =)
-                distance = distance * 61.2;
+                distance = distance * 61.8;
                 
 
                 SpotDataDto? existingClosestSpot = lotsAndDistance.GetValueOrDefault(spot.ParkingLotId);
