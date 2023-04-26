@@ -5,7 +5,7 @@ The microservice will return a json package with associated information
 
 It will return the nearest parking lots to the given location, sorted by the proximity to the location (if amount of parking in lot data is available, this will be factored into the sort, so lots with little/no parking will not be high in the list). It will be filterable by type of parking spot.
 
-
+api link example: https://localhost:7095/api/parking/nearby?lat=36.3024625&lon=-82.3685038&filter=Student
 
 JSON data returned:
 List of parking lots (ordered by proximity):
