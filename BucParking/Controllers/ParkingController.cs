@@ -36,8 +36,9 @@ namespace BucParking.Controllers
             //Test to check if data is retrieved.
             var count = parkingData.parkingSpots.Count;
             List<ParkingLot> lots = new List<ParkingLot>();
-            // pairs containing the lot name and the distance from the spot to the given location
+            // pairs containing the lot name and spot data (the spot id and the distance from the spot to the given location)
             Dictionary<string, SpotDataDto> lotsAndDistance = new Dictionary<string, SpotDataDto>();
+            // go through each spot, find the closest distance from a spot to the building and add it to the dictionary
             foreach (ParkingSpot spot in parkingData.parkingSpots)
             {
                 // add undesig spots and appropriate enter filter in url
@@ -54,7 +55,7 @@ namespace BucParking.Controllers
                 // longitude is 54.6 and latitude is 69 so this is an inaccurate average but close enough =)
                 distance = distance * 61.8;
                 
-
+                // check if this spot is the closest to the destination. if so then set it as the distance
                 SpotDataDto? existingClosestSpot = lotsAndDistance.GetValueOrDefault(spot.ParkingLotId);
                 var existingDist = existingClosestSpot?.Distance;
                 if (existingDist == 0 || existingDist == null) existingDist = Double.MaxValue;
@@ -65,8 +66,10 @@ namespace BucParking.Controllers
                     lotsAndDistance.Add(spot.ParkingLotId, new SpotDataDto { SpotId = spot.Id, Distance = distance });
                 }
             }
+            // ordered dictionary by distance
             var spotsSortedByDistance = from entry in lotsAndDistance orderby entry.Value.Distance ascending select entry;
-            // just assuming there's 3 entries here
+            // just assuming there's 3 entries here; only returning the top 3
+            // the rest of this is packaging the data into a nice json present
             var lotsData = new object[3];
             for (int i = 0; i < 3; i++)
             {
