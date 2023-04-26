@@ -17,12 +17,19 @@ namespace BucParking.Controllers
            parkingData = _parkingData;
         }
 
+        /* 
+         * This is used for sorting the data in the spreadsheet
+         * Keeps track of spots and their distance to the requested location
+         */
         private class SpotDataDto
         {
             public int SpotId { get; set; }
             public double Distance { get; set; }
         }
 
+        /*
+         * The api call
+         */
         [HttpGet("nearby")]
         public ActionResult<string> Nearby(decimal lat, decimal lon, string filter)
         {
@@ -41,7 +48,12 @@ namespace BucParking.Controllers
 
                 decimal spotLat = spot.Latitude;
                 decimal spotLon = spot.Longitude;
+                // calc distance between spot location and given location
                 double distance = Math.Sqrt(Math.Pow((double)(spotLat - lat), 2) + Math.Pow((double)(spotLon - lon), 2));
+                // converts to mile from degree of longitude/latitude
+                // longitude is 54.6 and latitude is 69 so this is an inaccurate average but close enough =)
+                distance = distance * 61.2;
+                
 
                 SpotDataDto? existingClosestSpot = lotsAndDistance.GetValueOrDefault(spot.ParkingLotId);
                 var existingDist = existingClosestSpot?.Distance;
@@ -67,7 +79,7 @@ namespace BucParking.Controllers
                     available_spots = bestLot?.ParkingSpots.Count,
                     closest_lat = bestSpot?.Latitude,
                     closest_long = bestSpot?.Longitude,
-                    distance = spotsSortedByDistance.ElementAt(i).Value,
+                    distance = spotsSortedByDistance.ElementAt(i).Value.Distance,
                     map_link = 0
                 };
             }
