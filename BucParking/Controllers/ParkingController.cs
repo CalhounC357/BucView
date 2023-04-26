@@ -88,6 +88,5 @@ namespace BucParking.Controllers
 
             return jsonData;
         }
-
     }
 }

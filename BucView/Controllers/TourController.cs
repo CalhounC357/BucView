@@ -66,5 +66,17 @@ namespace BucView.Controllers
             return RedirectToAction("Index", "Tour", new {id=tourId});
             
         }
+
+        public async Task<IActionResult> NextTour(int id)
+        {
+            int count = (await repo.GetListOfTours()).Count;
+
+            if (id <= count)
+            {
+                return RedirectToAction("Index", new { id });
+            }
+
+            return RedirectToAction("Index", "Tour", new { id = 1 });
+        }
     }
 }

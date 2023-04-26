@@ -49,14 +49,15 @@
         <hr />
     }
    
-@*Button to go to the next tour*@
-<form>
-    @Html.ActionLink("Go To Next Tour", "Index", "Tour", new { id = Model.Id + 1}, new { @class="btn btn-secondary float-end", style="background-color: #001c43; border-color: #001c43; color: #fff;" })
-</form>
 
 @*Button to redirect from a given tour page back to the homepage*@
 <form>
     @Html.ActionLink("<-- Go Back Ya Dingus!", "Index", "Home", new { id = Model.Id }, new { @class="btn", style="background-color: #001c43; border-color: #001c43; color: #fff;" })
+</form>
+
+@*Button to go to the next tour*@
+<form style=" text-align: right">
+    @Html.ActionLink("Go To Next Tour","NextTour", "Tour", new { id = Model.Id + 1}, new { @class="btn btn-secondary" })
 </form>
 
 
