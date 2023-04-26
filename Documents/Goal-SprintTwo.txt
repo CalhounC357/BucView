@@ -1,2 +1,0 @@
-Goal for sprint 2
-	Have a working version of the application deployed and have the General tour working.
