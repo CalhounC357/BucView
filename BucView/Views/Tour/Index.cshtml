@@ -1,0 +1,66 @@
+﻿@model Tour
+
+@*
+    This is the starting point for a tour
+    It gives info about the tour, and links to the starting location in the tour
+*@
+@*This aligns the H1 to the center of the page*@
+
+<style>  
+    h1 {text-align: center;}
+    h3 {text-align: center; padding:10px}
+    h4 {text-align: center;}
+    h5 {text-align: center;}
+    b:link {color:#f4c52f}
+    b:visited {color:deeppink; text-decoration:none}
+    b:hover {color:red}
+</style>
+
+
+<h1>@Model.Name</h1>
+<h4>@Model.Description</h4>
+<hr />
+@*Displays the estimated time from the database. Displays a timer icon in front.*@
+<h5><img src="~/images/Timer.png" height="30" width="30" />Est. Time: @Model.EstimatedTime Minutes</h5>
+<hr />
+<h3><b>@Html.ActionLink("Start tour", "Location", "Tour", new {  tourId=Model.Id, rank=1  }, null)</b></h3>
+<hr />
+
+@{
+    
+    @*This section is just for testing and should be removed once this is styled; not linking to all the locations at the start*@
+    foreach (TourLocation tl in Model.Locations) {
+        
+        <style>
+        h2 {text-align: center; background-color:#f4c52f; padding:10px}
+        h6 {text-align: center;}
+        @*This changes the link color-profile*@
+        a:link {color:darkblue}
+        a:visited {color:#d21f3c; text-decoration:none}
+        a:hover {color:red}
+        </style>
+
+        @*<h4>@tl.Rank:</h4> hiding the rank nubmer*@
+        @*<h2>@tl.Location?.Name</h2>*2
+       @* <h6>@tl.Location?.Description</h6>*@
+        
+        @*<a asp-controller="Tour" asp-action="Location" style="padding-left: 3px">Back to Admin Portal</a>*@
+        <h2><a>@Html.ActionLink(@tl.Location?.Name, "Location", "Tour", new {  tourId=Model.Id, rank=tl.Rank  }, null)</a></h2>
+        <hr />
+    }
+   
+
+@*Button to redirect from a given tour page back to the homepage*@
+<form>
+    @Html.ActionLink("<-- Go Back Ya Dingus!", "Index", "Home", new { id = Model.Id }, new { @class="btn", style="background-color: #001c43; border-color: #001c43; color: #fff;" })
+</form>
+
+@*Button to go to the next tour*@
+<form style=" text-align: right">
+    @Html.ActionLink("Go To Next Tour","NextTour", "Tour", new { id = Model.Id + 1}, new { @class="btn btn-secondary" })
+</form>
+
+
+  }
+
+  

@@ -1,0 +1,49 @@
+﻿html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+}
+
+#page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#main-logo {
+    max-width: 600px;
+    align-self: center;
+}
+
+#dropdown-container {
+    text-align: center;
+}
+
+#dropdown-title {
+    text-align: center;
+}
+
+#dropdown-items {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    text-align: center;
+}
+
+#dropdown-container:hover #dropdown-items {
+    max-height: 500px;
+    transition: max-height 0.5s ease-in;
+}
+
+#static-map {
+    align-self: center;
+    min-width: 500px;
+    min-height: 400px;
+}
+

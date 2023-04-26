@@ -1,0 +1,48 @@
+The microservice will be a simple ASP.NET Core app. It will have two csv files for parking lot data and parking spot data, and will load this data in on startup as objects "ParkingSpot" and "ParkingLot".
+
+The main app will call the microservice using an api link like url/api/nearbyparking?lat=34.00&long=-64.53
+The microservice will return a json package with associated information
+
+It will return the nearest parking lots to the given location, sorted by the proximity to the location (if amount of parking in lot data is available, this will be factored into the sort, so lots with little/no parking will not be high in the list). It will be filterable by type of parking spot.
+
+api link example: https://localhost:7095/api/parking/nearby?lat=36.3024625&lon=-82.3685038&filter=Student
+
+JSON data returned:
+List of parking lots (ordered by proximity):
+  Parking lot object:
+    Lot name (string)
+    # of available parking spots filtered by chosen filter (int)
+    Closest parking spot to location latitude (decimal)
+    Closest parking spot to location longitude (decimal)
+    Distance in miles from closest parking spot to location (int)
+    Google maps api link? (string)
+
+
+{
+  "parking_lots": [
+    {
+      "lot_name": "1",
+      "available_spots": 200,
+      "closest_lat": 37.7749,
+      "closest_long": -122.4194,
+      "distance": 1,
+      "map_link": "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZ8b99Yp-j4ARDrTtb1dK0vg"
+    },
+    {
+      "lot_name": "2a",
+      "available_spots": 15,
+      "closest_lat": 37.7763,
+      "closest_long": -122.4186,
+      "distance": 1.1,
+      "map_link": "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJe2xxbId-j4ARq3UpS7knzME"
+    },
+    {
+      "lot_name": "34",
+      "available_spots": 10,
+      "closest_lat": 37.7754,
+      "closest_long": -122.4174,
+      "distance": 1.3,
+      "map_link": "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ7ykthYt-j4ARGh8uZqjMDxM"
+    }
+  ]
+}

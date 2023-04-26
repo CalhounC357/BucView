@@ -1,0 +1,52 @@
+@model IEnumerable<Tour>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/index.css" />
+}
+
+@{
+    ViewData["Title"] = "ETSU Tours";
+}
+
+<div id="page-content">
+
+    <!-- ETSU logo -->
+    <img id="main-logo" src="~/images/logos/ETSU_FullName_shield_logo.jpg" alt="ETSU LOGO" />
+
+
+    @* TODO: Cannot get list items to center, tried multiple solutions. Look further into this. -Dylan *@
+    @* Added a line break after each item in the dropdown. -Kyle*@
+    <!-- Tour dropdown menu -->
+    <div id="dropdown-container">
+        <h2 id="dropdown-title">Tours</h2>
+        <ul id="dropdown-items" style="list-style: none">
+        @{
+          foreach (Tour tour in Model) 
+          {
+           <style> 
+           @*This changes the link color-profile*@
+        a:link {color:darkblue}
+        a:visited {color:#d21f3c; text-decoration:none}
+        a:hover {color:red}
+        </style>   
+            <li><a>@Html.ActionLink(tour.Name, "Index", "Tour", new {  id=tour.Id  }, new { @class= "myactionLink"} ) <br /><br /> </li>
+          }
+        }
+        </ul>
+    </div>
+
+    <!-- Static map of ETSU campus -->
+    <p style="text-align: center;">     <!--Alight the map in the center-->
+    <img src="~/images/ETSU_Map.png" type="application/pdf" width="600px" height="450px" />     <!--The width and height are set manually to size the .png-->
+    </p>
+    
+</div>
+
+<!--This is used to center the .png map on the page-->
+<!-- Changes link color to dark blue.-->
+<style>
+    .myactionLink {
+        color: darkblue
+    }
+</style>
+
