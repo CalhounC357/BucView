@@ -33,19 +33,19 @@
                                 <li><h4 id="dropdown-title">On-Campus</h4></li>
                                 @{
                                     dynamic foodData = @ViewData["FoodData"];
-                                    foreach (Location location in foodData.LocationsOne )
-                                {
-                                <li>@Html.ActionLink(location.Name, "Index", "Location", new {id=location.Id}, null)</li>
-                                }
+                                    foreach (Location location in foodData.LocationsOne)
+                                    {
+                                        <li>@Html.ActionLink(location.Name, "Index", "Location", new {id=location.Id}, null)</li>
+                                    }
                                 }
                                 <li><div class="dropdown-divider"></div></li>
                                 <li><h4 id="dropdown-title">Off-Campus</h4></li>
-                                 @{
+                                @{
                                     dynamic foodDataTwo = @ViewData["FoodData"];
                                     foreach (Location location in foodDataTwo.LocationsTwo)   
-                                {
-                                <li>@Html.ActionLink(location.Name, "Index", "Location", new {id=location.Id}, null)</li>
-                                }
+                                    {
+                                        <li>@Html.ActionLink(location.Name, "Index", "Location", new {id=location.Id}, null)</li>
+                                    }
                                 }
                             </ul>
                         </li>
