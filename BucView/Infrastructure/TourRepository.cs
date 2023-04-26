@@ -33,6 +33,11 @@ namespace BucView.Infrastructure
                 .FirstOrDefaultAsync(t => t.Id == tourId);
         }
 
+        public async Task<ICollection<Tour>> GetListOfTours()
+        {
+            return await db.Tour.ToListAsync();
+        }
+
         public async Task<ICollection<TourLocation>> GetTourLocations(int tourId)
         {
             return await db.TourLocation
