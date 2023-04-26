@@ -8,5 +8,9 @@ namespace BucParking.Service
 
         List<ParkingLot> parkingLots { get; }
 
+        ParkingLot? GetLotFromName(string name);
+
+        ParkingSpot? GetSpotFromId(int id);
+
     }
 }
